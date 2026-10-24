@@ -16,7 +16,7 @@ import { FinalCta, Footer } from "@/components/landing/footer-cta";
 import { FloatingWhatsApp, CursorGlow } from "@/components/landing/floating";
 import { LiveFeed } from "@/components/landing/live-feed";
 import { StickyCta } from "@/components/landing/sticky-cta";
-import { FAQS, PRICING_TIERS } from "@/lib/landing-constants";
+import { FAQS, PRICING_TIERS, EMAIL, DOMAIN_MAIN_URL, DOMAIN_ALT_URL } from "@/lib/landing-constants";
 
 /* V10 — structured data: Organization + Product offers + FAQ */
 const jsonLd = {
@@ -25,8 +25,9 @@ const jsonLd = {
     {
       "@type": "Organization",
       name: "Gunara Consultant",
-      url: "https://gunara.web.id",
-      email: "halo@gunaraconsultant.com",
+      url: DOMAIN_MAIN_URL,
+      email: EMAIL,
+      sameAs: [DOMAIN_MAIN_URL, DOMAIN_ALT_URL],
       address: {
         "@type": "PostalAddress",
         streetAddress: "Andalusia Garden Cluster Granada No.11, Jln. Abdi Negara II",
@@ -68,7 +69,7 @@ const jsonLd = {
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen flex flex-col bg-[#05060A]">
+    <div className="relative min-h-screen flex flex-col bg-[#FBFAFF]">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

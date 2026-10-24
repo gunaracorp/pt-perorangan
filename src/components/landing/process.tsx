@@ -37,16 +37,16 @@ function ResultCard({
       <div className="glass-strong gold-hairline shine-wrap relative overflow-hidden rounded-2xl p-6 text-center">
         <div className="shine-sweep pointer-events-none absolute inset-0" />
         {/* gold seal */}
-        <div className="cert-seal mx-auto flex h-12 w-12 items-center justify-center rounded-full border-2 border-[#d4af37]/70 bg-gradient-to-br from-[#2a2310] to-[#0a0c14]">
-          <ShieldCheck className="h-5.5 w-5.5 text-[#f1de9b]" />
+        <div className="cert-seal mx-auto flex h-12 w-12 items-center justify-center rounded-full border-2 border-[#7C3AED]/70 bg-gradient-to-br from-[#E9E1FC] to-[#F3F0FE]">
+          <ShieldCheck className="h-5.5 w-5.5 text-[#6D28D9]" />
         </div>
-        <p className="mt-4 text-[10px] font-black tracking-[0.3em] text-[#d4af37]">
+        <p className="mt-4 text-[10px] font-black tracking-[0.3em] text-[#7C3AED]">
           {item.code}
         </p>
-        <h4 className="font-serif-lux mt-1.5 text-lg font-semibold text-[#EDE6D6]">
+        <h4 className="font-serif-lux mt-1.5 text-lg font-semibold text-[#241A4F]">
           {item.title}
         </h4>
-        <p className="mt-2 text-xs leading-relaxed text-[#EDE6D6]/55">{item.note}</p>
+        <p className="mt-2 text-xs leading-relaxed text-[#241A4F]/55">{item.note}</p>
       </div>
     </div>
   );
@@ -56,18 +56,18 @@ export function Process() {
   return (
     <section id="proses" className="relative overflow-hidden py-24 md:py-32">
       <div className="absolute inset-0 bg-grid-lux opacity-60" />
-      <div className="aurora left-[-6%] bottom-[5%] h-[340px] w-[340px] bg-[#d4af37]/8" />
+      <div className="aurora left-[-6%] bottom-[5%] h-[340px] w-[340px] bg-[#7C3AED]/8" />
 
       <div className="relative z-10 mx-auto max-w-5xl px-4 md:px-8">
         <Reveal className="mx-auto max-w-3xl text-center">
-          <p className="text-[11px] font-bold tracking-[0.34em] text-[#d4af37]">
+          <p className="text-[11px] font-bold tracking-[0.34em] text-[#7C3AED]">
             ALUR CEPAT TERSERTIFIKASI ISO 9001:2015
           </p>
-          <h2 className="font-serif-lux mt-4 text-3xl font-bold leading-tight text-[#EDE6D6] md:text-5xl">
+          <h2 className="font-serif-lux mt-4 text-3xl font-bold leading-tight text-[#241A4F] md:text-5xl">
             Transfer Hari Ini,{" "}
             <span className="text-gold-grad italic">PT Sah Besok</span>
           </h2>
-          <p className="mt-5 text-[15px] leading-relaxed text-[#EDE6D6]/60">
+          <p className="mt-5 text-[15px] leading-relaxed text-[#241A4F]/60">
             Lima langkah — Anda hanya menyentuh langkah pertama. Selebihnya kami yang
             berjuang untuk Anda.
           </p>
@@ -75,7 +75,7 @@ export function Process() {
 
         <div className="relative mt-16">
           {/* vertical line */}
-          <div className="absolute left-[27px] top-2 bottom-2 w-px bg-gradient-to-b from-[#d4af37]/60 via-[#d4af37]/20 to-transparent md:left-1/2" />
+          <div className="absolute left-[27px] top-2 bottom-2 w-px bg-gradient-to-b from-[#7C3AED]/60 via-[#7C3AED]/20 to-transparent md:left-1/2" />
 
           <div className="flex flex-col gap-10">
             {PROCESS_STEPS.map((step, i) => {
@@ -100,8 +100,8 @@ export function Process() {
                       style={left ? { right: "auto" } : undefined}
                     >
                       <div className="relative flex h-14 w-14 items-center justify-center">
-                        <span className="absolute inset-0 rounded-full border border-[#d4af37]/35 bg-[#0a0c14]" />
-                        <span className="absolute inset-0 rounded-full bg-[#d4af37]/10 blur-md" />
+                        <span className="absolute inset-0 rounded-full border border-[#7C3AED]/35 bg-[#F3F0FE]" />
+                        <span className="absolute inset-0 rounded-full bg-[#7C3AED]/10 blur-md" />
                         <span className="font-serif-lux text-gold-grad relative text-lg font-bold">
                           {step.num}
                         </span>
@@ -109,21 +109,21 @@ export function Process() {
                     </div>
 
                     <div
-                      className={`glass gold-hairline flex-1 rounded-2xl p-6 transition-colors duration-500 hover:bg-[#d4af37]/[0.05] ${
+                      className={`glass gold-hairline flex-1 rounded-2xl p-6 transition-colors duration-500 hover:bg-[#7C3AED]/[0.05] ${
                         left ? "md:text-right" : ""
                       }`}
                     >
                       <div className="flex items-center gap-3 md:justify-end">
-                        <span className={`inline-block rounded-full border border-[#d4af37]/30 bg-[#d4af37]/10 px-2.5 py-1 text-[9px] font-black tracking-[0.18em] text-[#f1de9b] ${
+                        <span className={`inline-block rounded-full border border-[#7C3AED]/30 bg-[#7C3AED]/10 px-2.5 py-1 text-[9px] font-black tracking-[0.18em] text-[#6D28D9] ${
                           step.tag === "1×24 JAM" ? "border-[#25D366]/40 bg-[#25D366]/10 text-[#4ade80]" : ""
                         }`}>
                           {step.tag}
                         </span>
-                        <h3 className="font-serif-lux text-lg font-semibold text-[#EDE6D6] md:text-xl">
+                        <h3 className="font-serif-lux text-lg font-semibold text-[#241A4F] md:text-xl">
                           {step.title}
                         </h3>
                       </div>
-                      <p className="mt-2.5 text-sm leading-relaxed text-[#EDE6D6]/60">
+                      <p className="mt-2.5 text-sm leading-relaxed text-[#241A4F]/60">
                         {step.desc}
                       </p>
                     </div>
@@ -138,11 +138,11 @@ export function Process() {
         <Reveal delay={120} className="mt-20">
           <div className="mx-auto max-w-3xl text-center">
             <div className="shimmer-line mx-auto w-40" />
-            <p className="mt-8 text-[11px] font-bold tracking-[0.34em] text-[#d4af37]">
+            <p className="mt-8 text-[11px] font-bold tracking-[0.34em] text-[#7C3AED]">
               YANG ANDA TERIMA DI TANGAN
             </p>
-            <h3 className="font-serif-lux mt-3 text-2xl font-bold text-[#EDE6D6] md:text-3xl">
-              3 Dokumen Emas{" "}
+            <h3 className="font-serif-lux mt-3 text-2xl font-bold text-[#241A4F] md:text-3xl">
+              3 Dokumen Kunci{" "}
               <span className="text-gold-grad italic">Pembuktian Keberadaan PT Anda</span>
             </h3>
           </div>

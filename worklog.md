@@ -18,3 +18,25 @@ Stage Summary:
 - Deliverable: landing page single-route (/) mewah full-animasi, fokus PT Perseorangan, konversi transfer → BCA 0860742187 a.n. Gugun Gunara + dokumen KTP/NPWP/alamat → 1 hari jadi.
 - File utama: src/app/{layout,page,globals.css}, src/lib/landing-constants.ts, src/components/landing/{preloader,particles,reveal,navbar,hero,marquee,advantages,comparison,process,doc-requirements,pricing,testimonials,payment,faq,registration-form,floating,footer-cta}.tsx
 - Catatan: harga Paket 3 (Rp5jt) diturunkan dari interpretasi "all tools seharga 5 juta" — mudah diubah di src/lib/landing-constants.ts (PRICING_TIERS).
+
+---
+Task ID: 2
+Agent: Main agent (Z.ai)
+Task: Final polish — ganti email ke gunara@pusatperizinan.com, hubungkan domain pusatperizinan.com (utama) + gunara.web.id, dan migrasi seluruh tema warna dari "Midnight Obsidian & Gold" (gelap) ke "Royal Amethyst & Pearl" (putih terang + ungu full power).
+
+Work Log:
+- Menulis script migrasi persisten scripts/migrate-purple-theme.pl (41 aturan pemetaan warna: hex case-insensitive + rgba opsional-spasi + kelas white-on-light) dan menjalankannya ke 21 file (19 komponen landing + page.tsx + layout.tsx) — tanpa sisa palet lama (audit rg bersih).
+- Rewrite penuh src/app/globals.css ke tema terang: latar #FBFAFF, teks royal ink #241A4F, aksen violet (#7C3AED/#5B21B6/#8B5CF6/#6D28D9), glass putih frosted, hairline ungu, btn-gold (nama kelas dipertahankan) kini gradasi ungu teks putih, text-gold-grad kini ungu mengalir, scrollbar/selection/cursor-glow/grid/slider/spotlight/grain semuanya dimigrasi; token shadcn :root di-set ke light-violet; grain dipertipis (0.035).
+- EMAIL → gunara@pusatperizinan.com; konstanta baru DOMAIN_MAIN(_URL) & DOMAIN_ALT(_URL) di landing-constants.ts.
+- layout.tsx: metadataBase https://pusatperizinan.com, canonical "/", openGraph.url, siteName "PusatPerizinan.com — Gunara Consultant", keywords + domain; themeColor #FBFAFF; body class terang.
+- page.tsx: JSON-LD Organization — url domain utama, email baru, sameAs kedua domain.
+- footer-cta.tsx: blok "Kontak Resmi" + baris domain ber-Globe icon (pusatperizinan.com — domain utama; gunara.web.id — jaringan resmi kami), copyright memakai link domain.
+- navbar.tsx: chip Globe "PUSATPERIZINAN.COM" (xl), shadow navbar di-lembutkan ke ungu.
+- Fix kontras: inisial avatar hero → putih; live-feed shadow hitam → ungu; live-dot/white-dot → ungu; copy "3 Dokumen Emas" → "3 Dokumen Kunci".
+- Insiden: reload browser menyajikan CSS basi (body masih #05060A) — restart dev server + rm -rf .next; setelah itu computed style terverifikasi (body rgb(251,250,255), btn-gold & text-gold-grad gradasi ungu).
+- Verifikasi: lint bersih; 13 CTA wa.me aktif; mailto:gunara@pusatperizinan.com; link kedua domain OK; klik "Salin Nomor Rekening" → toast muncul; screenshot desktop (hero/pricing/proses/mid/docs/payment/footer) + mobile 390px — semuanya tematik putih-ungu, tanpa error console.
+
+Stage Summary:
+- Deliverable: landing page PT Perseorangan edisi "Putih Terang Ungu" (Royal Amethyst & Pearl) dengan email gunara@pusatperizinan.com dan jaringan domain pusatperizinan.com + gunara.web.id terintegrasi (footer, navbar, metadata, canonical, JSON-LD).
+- Kunci teknis: nama kelas design system dipertahankan (btn-gold, text-gold-grad, dst.) sehingga 0 perubahan markup massal; palet dimigrasi via script replikabel scripts/migrate-purple-theme.pl.
+- Catatan: bila ingin aksenemasar warna lain cukup edit variabel di globals.css (:root --violet-*) + script pemetaan.

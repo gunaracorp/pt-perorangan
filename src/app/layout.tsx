@@ -19,7 +19,8 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Pendirian PT Perseorangan — 1 Hari Jadi, Mulai Rp750rb | Gunara Consultant",
+  metadataBase: new URL("https://pusatperizinan.com"),
+  title: "Pendirian PT Perseorangan — 1 Hari Jadi, Mulai Rp750rb | Gunara Consultant · PusatPerizinan.com",
   description:
     "PT Perseorangan sah dalam 1 hari kerja: cukup KTP + NPWP + alamat, tanpa notaris. NIB, Sertifikat Pendaftaran, dan Akta Perseorangan diurus penuh lewat jalur resmi OSS-RBA & Kemenkumham RI. Harga khusus mulai Rp750.000 dari normal Rp2.000.000. Tersertifikasi ISO 9001:2015, melayani 38 provinsi.",
   keywords: [
@@ -33,13 +34,18 @@ export const metadata: Metadata = {
     "badan hukum UMKM",
     "Gunara Consultant",
     "jasa pendirian PT murah",
+    "pusatperizinan.com",
+    "gunara.web.id",
+    "Pusat Perizinan",
   ],
   authors: [{ name: "Gunara Consultant" }],
+  alternates: { canonical: "/" },
   openGraph: {
     title: "PT Perseorangan Sah dalam 1 Hari Kerja — Mulai Rp750rb | Gunara Consultant",
     description:
       "Cukup KTP + NPWP + alamat, tanpa notaris. NIB + Sertifikat Pendaftaran + Akta Perseorangan terbit via jalur resmi OSS-RBA & Kemenkumham RI. Konsultasi gratis via WhatsApp.",
-    siteName: "Gunara Consultant",
+    siteName: "PusatPerizinan.com — Gunara Consultant",
+    url: "https://pusatperizinan.com",
     type: "website",
     locale: "id_ID",
   },
@@ -53,7 +59,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#05060A",
+  themeColor: "#FBFAFF",
   width: "device-width",
   initialScale: 1,
 };
@@ -66,7 +72,7 @@ export default function RootLayout({
   return (
     <html lang="id" suppressHydrationWarning>
       <body
-        className={`${playfair.variable} ${manrope.variable} antialiased bg-[#05060A] text-[#EDE6D6]`}
+        className={`${playfair.variable} ${manrope.variable} antialiased bg-[#FBFAFF] text-[#241A4F]`}
       >
         {children}
         <Toaster />

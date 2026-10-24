@@ -97,7 +97,7 @@ export function GoldParticles({ density = 90 }: { density?: number }) {
           const d2 = dx * dx + dy * dy;
           if (d2 < 120 * 120 && d2 > 1) {
             const t = 1 - Math.sqrt(d2) / 120;
-            ctx.strokeStyle = `rgba(212, 175, 55, ${t * 0.14})`;
+            ctx.strokeStyle = `rgba(124, 58, 237, ${t * 0.14})`;
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
             ctx.lineTo(b.x, b.y);
@@ -133,8 +133,8 @@ export function GoldParticles({ density = 90 }: { density?: number }) {
           s.x,
           s.y
         );
-        grad.addColorStop(0, "rgba(247, 236, 201, 0)");
-        grad.addColorStop(1, `rgba(247, 236, 201, ${0.8 * fade})`);
+        grad.addColorStop(0, "rgba(139, 92, 246, 0)");
+        grad.addColorStop(1, `rgba(139, 92, 246, ${0.8 * fade})`);
         ctx.strokeStyle = grad;
         ctx.lineWidth = 1.6;
         ctx.beginPath();
@@ -169,9 +169,9 @@ export function GoldParticles({ density = 90 }: { density?: number }) {
         const alpha = p.alpha * (0.45 + 0.55 * twinkle);
 
         const grad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r * 3.2);
-        grad.addColorStop(0, `rgba(247, 236, 201, ${alpha})`);
-        grad.addColorStop(0.4, `rgba(212, 175, 55, ${alpha * 0.65})`);
-        grad.addColorStop(1, "rgba(212, 175, 55, 0)");
+        grad.addColorStop(0, `rgba(139, 92, 246, ${alpha})`);
+        grad.addColorStop(0.4, `rgba(124, 58, 237, ${alpha * 0.65})`);
+        grad.addColorStop(1, "rgba(124, 58, 237, 0)");
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r * 3.2, 0, Math.PI * 2);
         ctx.fillStyle = grad;

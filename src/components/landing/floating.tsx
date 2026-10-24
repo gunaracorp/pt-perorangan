@@ -34,7 +34,7 @@ export function FloatingWhatsApp() {
       className="group fixed bottom-24 right-5 z-40 flex items-center gap-3 opacity-0 transition-transform duration-700 md:bottom-7 md:right-7"
       style={{ transform: "translateY(24px)" }}
     >
-      <span className="glass-strong gold-hairline pointer-events-none hidden rounded-full px-4 py-2.5 text-xs font-semibold text-[#EDE6D6] opacity-0 transition-all duration-300 group-hover:opacity-100 md:block">
+      <span className="glass-strong gold-hairline pointer-events-none hidden rounded-full px-4 py-2.5 text-xs font-semibold text-[#241A4F] opacity-0 transition-all duration-300 group-hover:opacity-100 md:block">
         Tanya dulu — gratis kok
       </span>
       <span className="pulse-ring relative flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-[#2ee06f] to-[#1da851] text-white shadow-[0_12px_36px_-8px_rgba(37,211,102,0.65)] transition-transform duration-300 group-hover:scale-110">

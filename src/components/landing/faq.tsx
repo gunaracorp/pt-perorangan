@@ -12,10 +12,10 @@ export function Faq() {
     <section id="faq" className="relative overflow-hidden py-24 md:py-32">
       <div className="relative z-10 mx-auto max-w-3xl px-4 md:px-8">
         <Reveal className="text-center">
-          <p className="text-[11px] font-bold tracking-[0.34em] text-[#d4af37]">
+          <p className="text-[11px] font-bold tracking-[0.34em] text-[#7C3AED]">
             PERTANYAAN UMUM
           </p>
-          <h2 className="font-serif-lux mt-4 text-3xl font-bold leading-tight text-[#EDE6D6] md:text-5xl">
+          <h2 className="font-serif-lux mt-4 text-3xl font-bold leading-tight text-[#241A4F] md:text-5xl">
             Segala yang Ingin Anda{" "}
             <span className="text-gold-grad italic">Tanyakan</span>
           </h2>
@@ -28,7 +28,7 @@ export function Faq() {
               <Reveal key={faq.q} delay={i * 60}>
                 <div
                   className={`glass gold-hairline overflow-hidden rounded-2xl transition-all duration-500 ${
-                    isOpen ? "bg-[#d4af37]/[0.05]" : ""
+                    isOpen ? "bg-[#7C3AED]/[0.05]" : ""
                   }`}
                 >
                   <button
@@ -39,12 +39,12 @@ export function Faq() {
                     <span className="flex items-start gap-3.5">
                       <MessageCircleQuestion
                         className={`mt-0.5 h-5 w-5 shrink-0 transition-colors ${
-                          isOpen ? "text-[#f1de9b]" : "text-[#d4af37]/60"
+                          isOpen ? "text-[#6D28D9]" : "text-[#7C3AED]/60"
                         }`}
                       />
                       <span
                         className={`text-[15px] font-semibold leading-snug transition-colors ${
-                          isOpen ? "text-[#f1de9b]" : "text-[#EDE6D6]/85"
+                          isOpen ? "text-[#6D28D9]" : "text-[#241A4F]/85"
                         }`}
                       >
                         {faq.q}
@@ -53,11 +53,11 @@ export function Faq() {
                     <span
                       className={`faq-chevron flex h-8 w-8 shrink-0 items-center justify-center rounded-full border transition-all duration-400 ${
                         isOpen
-                          ? "rotate-180 border-[#d4af37]/50 bg-[#d4af37]/15"
-                          : "border-white/10"
+                          ? "rotate-180 border-[#7C3AED]/50 bg-[#7C3AED]/15"
+                          : "border-[#7C3AED]/15"
                       }`}
                     >
-                      <ChevronDown className="h-4 w-4 text-[#d4af37]" />
+                      <ChevronDown className="h-4 w-4 text-[#7C3AED]" />
                     </span>
                   </button>
                   <div
@@ -66,7 +66,7 @@ export function Faq() {
                     }`}
                   >
                     <div className="overflow-hidden">
-                      <p className="px-6 pb-6 pl-[3.4rem] text-sm leading-relaxed text-[#EDE6D6]/65">
+                      <p className="px-6 pb-6 pl-[3.4rem] text-sm leading-relaxed text-[#241A4F]/65">
                         {faq.a}
                       </p>
                     </div>

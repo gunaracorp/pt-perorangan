@@ -29,19 +29,19 @@ export function StickyCta() {
 
   return (
     <div className="sticky-cta-in fixed inset-x-0 bottom-0 z-40 md:hidden">
-      <div className="glass-strong border-t border-[#d4af37]/35 bg-[#05060A]/92 px-4 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-3 backdrop-blur-2xl">
+      <div className="glass-strong border-t border-[#7C3AED]/35 bg-[#FBFAFF]/92 px-4 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-3 backdrop-blur-2xl">
         <div className="flex items-center gap-3">
           <div className="min-w-0 flex-1 leading-tight">
-            <p className="flex items-center gap-1.5 text-[10px] font-bold tracking-[0.14em] text-[#d4af37]">
+            <p className="flex items-center gap-1.5 text-[10px] font-bold tracking-[0.14em] text-[#7C3AED]">
               <Clock3 className="h-3 w-3" />
               PT JADI 1 HARI
             </p>
-            <p className="mt-0.5 truncate text-[13px] font-semibold text-[#EDE6D6]">
+            <p className="mt-0.5 truncate text-[13px] font-semibold text-[#241A4F]">
               Mulai{" "}
               <span className="font-serif-lux text-gold-grad text-base font-bold">
                 Rp750rb
               </span>{" "}
-              <span className="text-[11px] text-[#EDE6D6]/40 line-through">
+              <span className="text-[11px] text-[#241A4F]/40 line-through">
                 Rp2jt
               </span>
             </p>

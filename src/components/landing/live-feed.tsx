@@ -48,27 +48,27 @@ export function LiveFeed() {
       aria-live="polite"
       className={`feed-pop ${leaving ? "is-leaving" : ""} fixed bottom-24 left-4 z-40 md:bottom-7 md:left-7`}
     >
-      <div className="glass-strong gold-hairline flex max-w-[280px] items-center gap-3 rounded-2xl px-4 py-3 shadow-[0_18px_50px_-12px_rgba(0,0,0,0.85)]">
+      <div className="glass-strong gold-hairline flex max-w-[280px] items-center gap-3 rounded-2xl px-4 py-3 shadow-[0_18px_50px_-12px_rgba(76,29,149,0.3)]">
         <div className="relative shrink-0">
-          <span className="avatar-ring flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-[#d4af37]/35 to-[#0a0c14]">
-            <span className="font-serif-lux text-[11px] font-bold text-[#f1de9b]">
+          <span className="avatar-ring flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-[#7C3AED]/35 to-[#F3F0FE]">
+            <span className="font-serif-lux text-[11px] font-bold text-[#6D28D9]">
               {item.initials}
             </span>
           </span>
           <span className="live-dot absolute -right-0.5 -top-0.5 flex h-3 w-3 items-center justify-center rounded-full bg-[#25D366]">
-            <span className="h-1.5 w-1.5 rounded-full bg-white" />
+            <span className="h-1.5 w-1.5 rounded-full bg-[#7C3AED]" />
           </span>
         </div>
         <div className="min-w-0 leading-snug">
-          <p className="truncate text-[12px] font-bold text-[#EDE6D6]">
+          <p className="truncate text-[12px] font-bold text-[#241A4F]">
             {item.name}
-            <span className="font-normal text-[#EDE6D6]/55"> · {item.city}</span>
+            <span className="font-normal text-[#241A4F]/55"> · {item.city}</span>
           </p>
-          <p className="mt-0.5 flex items-center gap-1 text-[11px] text-[#f1de9b]/90">
+          <p className="mt-0.5 flex items-center gap-1 text-[11px] text-[#6D28D9]/90">
             <BadgeCheck className="h-3 w-3 shrink-0" />
             <span className="truncate font-semibold">{item.pkg}</span>
           </p>
-          <p className="mt-0.5 text-[10px] text-[#EDE6D6]/40">
+          <p className="mt-0.5 text-[10px] text-[#241A4F]/40">
             baru mendaftar · {item.mins} mnt lalu
           </p>
         </div>

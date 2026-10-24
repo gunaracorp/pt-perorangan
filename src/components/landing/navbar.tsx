@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Menu, X, ShieldCheck, Sparkles } from "lucide-react";
-import { waLink, WA_DEFAULT_MSG } from "@/lib/landing-constants";
+import { Globe, Menu, X, ShieldCheck, Sparkles } from "lucide-react";
+import { waLink, WA_DEFAULT_MSG, DOMAIN_MAIN } from "@/lib/landing-constants";
 
 const NAV_LINKS = [
   { href: "#keunggulan", label: "Keunggulan" },
@@ -54,27 +54,27 @@ export function Navbar() {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-[#05060A]/80 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.8)] backdrop-blur-xl"
+          ? "bg-[#FBFAFF]/85 shadow-[0_10px_40px_-18px_rgba(76,29,149,0.28)] backdrop-blur-xl"
           : "bg-transparent"
       }`}
     >
       {/* scroll progress */}
       <div
-        className="absolute inset-x-0 top-0 h-[2px] origin-left bg-gradient-to-r from-[#8a6a1f] via-[#f1de9b] to-[#d4af37] transition-transform duration-150"
+        className="absolute inset-x-0 top-0 h-[2px] origin-left bg-gradient-to-r from-[#5B21B6] via-[#6D28D9] to-[#7C3AED] transition-transform duration-150"
         style={{ transform: `scaleX(${progress})` }}
       />
 
       <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 md:h-[72px] md:px-8">
         <a href="#" className="group flex items-center gap-3" aria-label="Gunara Consultant">
-          <span className="relative flex h-10 w-10 items-center justify-center rounded-full border border-[#d4af37]/40 bg-gradient-to-br from-[#16130a] to-[#0a0c14]">
+          <span className="relative flex h-10 w-10 items-center justify-center rounded-full border border-[#7C3AED]/40 bg-gradient-to-br from-[#F1ECFE] to-[#F3F0FE]">
             <span className="font-serif-lux text-gold-grad text-xl font-bold">G</span>
-            <span className="absolute inset-0 rounded-full bg-[#d4af37]/10 blur-md transition-opacity group-hover:opacity-100" />
+            <span className="absolute inset-0 rounded-full bg-[#7C3AED]/10 blur-md transition-opacity group-hover:opacity-100" />
           </span>
           <span className="flex flex-col leading-none">
-            <span className="font-serif-lux text-[15px] font-semibold tracking-[0.18em] text-[#EDE6D6]">
+            <span className="font-serif-lux text-[15px] font-semibold tracking-[0.18em] text-[#241A4F]">
               GUNARA
             </span>
-            <span className="mt-1 text-[8px] tracking-[0.4em] text-[#d4af37]/80">
+            <span className="mt-1 text-[8px] tracking-[0.4em] text-[#7C3AED]/80">
               CONSULTANT
             </span>
           </span>
@@ -86,13 +86,13 @@ export function Navbar() {
               key={l.href}
               href={l.href}
               aria-current={active === l.href ? "true" : undefined}
-              className={`group relative text-[13px] font-medium tracking-wide transition-colors hover:text-[#f1de9b] ${
-                active === l.href ? "nav-active" : "text-[#EDE6D6]/70"
+              className={`group relative text-[13px] font-medium tracking-wide transition-colors hover:text-[#6D28D9] ${
+                active === l.href ? "nav-active" : "text-[#241A4F]/70"
               }`}
             >
               {l.label}
               <span
-                className={`absolute -bottom-1.5 left-0 h-px bg-gradient-to-r from-[#d4af37] to-transparent transition-all duration-300 ${
+                className={`absolute -bottom-1.5 left-0 h-px bg-gradient-to-r from-[#7C3AED] to-transparent transition-all duration-300 ${
                   active === l.href ? "w-full" : "w-0 group-hover:w-full"
                 }`}
               />
@@ -101,9 +101,15 @@ export function Navbar() {
         </div>
 
         <div className="flex items-center gap-3">
-          <div className="hidden items-center gap-2 rounded-full border border-[#d4af37]/25 bg-[#d4af37]/5 px-3 py-1.5 md:flex">
-            <ShieldCheck className="h-3.5 w-3.5 text-[#d4af37]" />
-            <span className="text-[10px] font-semibold tracking-[0.14em] text-[#d4af37]">
+          <div className="hidden items-center gap-2 rounded-full border border-[#7C3AED]/25 bg-[#7C3AED]/5 px-3 py-1.5 xl:flex">
+            <Globe className="h-3.5 w-3.5 text-[#6D28D9]" />
+            <span className="text-[10px] font-semibold tracking-[0.14em] text-[#6D28D9]">
+              {DOMAIN_MAIN.toUpperCase()}
+            </span>
+          </div>
+          <div className="hidden items-center gap-2 rounded-full border border-[#7C3AED]/25 bg-[#7C3AED]/5 px-3 py-1.5 md:flex">
+            <ShieldCheck className="h-3.5 w-3.5 text-[#7C3AED]" />
+            <span className="text-[10px] font-semibold tracking-[0.14em] text-[#7C3AED]">
               ISO 9001:2015
             </span>
           </div>
@@ -120,7 +126,7 @@ export function Navbar() {
             onClick={() => setOpen(!open)}
             aria-label="Buka menu"
             aria-expanded={open}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-[#d4af37]/30 text-[#EDE6D6] lg:hidden"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-[#7C3AED]/30 text-[#241A4F] lg:hidden"
           >
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
@@ -129,8 +135,8 @@ export function Navbar() {
 
       {/* mobile menu */}
       <div
-        className={`overflow-hidden bg-[#05060A]/95 backdrop-blur-xl transition-all duration-500 lg:hidden ${
-          open ? "max-h-96 border-b border-[#d4af37]/15" : "max-h-0"
+        className={`overflow-hidden bg-[#FBFAFF]/95 backdrop-blur-xl transition-all duration-500 lg:hidden ${
+          open ? "max-h-96 border-b border-[#7C3AED]/15" : "max-h-0"
         }`}
       >
         <div className="flex flex-col gap-1 px-6 py-4">
@@ -139,7 +145,7 @@ export function Navbar() {
               key={l.href}
               href={l.href}
               onClick={() => setOpen(false)}
-              className="rounded-lg px-3 py-3 text-sm text-[#EDE6D6]/80 transition-colors hover:bg-[#d4af37]/10 hover:text-[#f1de9b]"
+              className="rounded-lg px-3 py-3 text-sm text-[#241A4F]/80 transition-colors hover:bg-[#7C3AED]/10 hover:text-[#6D28D9]"
             >
               {l.label}
             </a>

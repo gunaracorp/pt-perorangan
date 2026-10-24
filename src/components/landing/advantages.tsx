@@ -67,18 +67,18 @@ function TiltCard({
 export function Advantages() {
   return (
     <section id="keunggulan" className="relative overflow-hidden py-24 md:py-32">
-      <div className="aurora left-[-8%] top-[10%] h-[360px] w-[360px] bg-[#d4af37]/10" />
+      <div className="aurora left-[-8%] top-[10%] h-[360px] w-[360px] bg-[#7C3AED]/10" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 md:px-8">
         <Reveal className="mx-auto max-w-3xl text-center">
-          <p className="text-[11px] font-bold tracking-[0.34em] text-[#d4af37]">
+          <p className="text-[11px] font-bold tracking-[0.34em] text-[#7C3AED]">
             KELEBIHAN PT PERSEORANGAN
           </p>
-          <h2 className="font-serif-lux mt-4 text-3xl font-bold leading-tight text-[#EDE6D6] md:text-5xl">
+          <h2 className="font-serif-lux mt-4 text-3xl font-bold leading-tight text-[#241A4F] md:text-5xl">
             Kenapa Ribuan Pemilik Usaha{" "}
             <span className="text-gold-grad italic">Memilih PT Perseorangan</span>
           </h2>
-          <p className="mt-5 text-[15px] leading-relaxed text-[#EDE6D6]/60">
+          <p className="mt-5 text-[15px] leading-relaxed text-[#241A4F]/60">
             Semua keuntungan badan hukum PT — tanpa biaya notaris, tanpa mitra, tanpa
             modal ratusan juta. Diurus Gunara Consultant, tersertifikasi ISO 9001:2015,
             berakar dari Mic Kinsey sejak 2009.
@@ -94,25 +94,25 @@ export function Advantages() {
               className={card.span ?? ""}
             >
               <TiltCard className={card.span ?? ""}>
-                <div className="glass gold-hairline group h-full rounded-2xl p-6 transition-colors duration-500 hover:bg-[#d4af37]/[0.06] md:p-7">
+                <div className="glass gold-hairline group h-full rounded-2xl p-6 transition-colors duration-500 hover:bg-[#7C3AED]/[0.06] md:p-7">
                   <div className="flex items-start justify-between">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-[#d4af37]/30 bg-gradient-to-br from-[#d4af37]/15 to-transparent transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
-                      <card.icon className="h-5.5 w-5.5 text-[#f1de9b]" />
+                    <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-[#7C3AED]/30 bg-gradient-to-br from-[#7C3AED]/15 to-transparent transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
+                      <card.icon className="h-5.5 w-5.5 text-[#6D28D9]" />
                     </div>
                     {card.big && (
-                      <span className="text-[10px] font-bold tracking-[0.2em] text-[#d4af37]/70">
+                      <span className="text-[10px] font-bold tracking-[0.2em] text-[#7C3AED]/70">
                         {String(i + 1).padStart(2, "0")}
                       </span>
                     )}
                   </div>
                   <h3
-                    className={`font-serif-lux mt-5 font-semibold text-[#EDE6D6] ${
+                    className={`font-serif-lux mt-5 font-semibold text-[#241A4F] ${
                       card.big ? "text-xl md:text-2xl" : "text-lg"
                     }`}
                   >
                     {card.title}
                   </h3>
-                  <p className="mt-2.5 text-sm leading-relaxed text-[#EDE6D6]/60">
+                  <p className="mt-2.5 text-sm leading-relaxed text-[#241A4F]/60">
                     {card.desc}
                   </p>
                 </div>
@@ -146,18 +146,18 @@ export function Advantages() {
         {/* heritage band */}
         <Reveal delay={150} className="mt-16">
           <div className="glass gold-hairline relative overflow-hidden rounded-2xl px-6 py-10 md:px-12">
-            <div className="absolute -right-20 -top-20 h-56 w-56 rounded-full bg-[#d4af37]/10 blur-3xl" />
+            <div className="absolute -right-20 -top-20 h-56 w-56 rounded-full bg-[#7C3AED]/10 blur-3xl" />
             <div className="relative grid items-center gap-8 md:grid-cols-[1.2fr_1fr]">
               <div>
-                <p className="text-[10px] font-bold tracking-[0.3em] text-[#d4af37]">
+                <p className="text-[10px] font-bold tracking-[0.3em] text-[#7C3AED]">
                   WARISAN MIC KINSEY · SEJAK 2009
                 </p>
-                <p className="font-serif-lux mt-4 text-xl font-medium leading-relaxed text-[#EDE6D6]/85 md:text-2xl">
+                <p className="font-serif-lux mt-4 text-xl font-medium leading-relaxed text-[#241A4F]/85 md:text-2xl">
                   “Legalitas bukan biaya, melainkan{" "}
                   <span className="text-gold-grad italic">fondasi keberanian</span>{" "}
                   berbisnis besar.”
                 </p>
-                <p className="mt-4 text-sm text-[#EDE6D6]/50">
+                <p className="mt-4 text-sm text-[#241A4F]/50">
                   — Gugun Gunara, Pendiri & Direktur Utama
                 </p>
               </div>
@@ -171,9 +171,9 @@ export function Advantages() {
                     <Counter
                       value={m.v}
                       suffix={m.s}
-                      className="font-serif-lux text-2xl font-bold text-[#f1de9b] md:text-3xl"
+                      className="font-serif-lux text-2xl font-bold text-[#6D28D9] md:text-3xl"
                     />
-                    <p className="mt-1 text-[10px] uppercase tracking-[0.2em] text-[#EDE6D6]/45">
+                    <p className="mt-1 text-[10px] uppercase tracking-[0.2em] text-[#241A4F]/45">
                       {m.l}
                     </p>
                   </div>

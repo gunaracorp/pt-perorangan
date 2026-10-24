@@ -2,7 +2,13 @@ export const WA_NUMBER = "6281316516524";
 export const WA_DISPLAY = "+62 813-1651-6524";
 export const BCA_ACCOUNT = "0860742187";
 export const BCA_NAME = "Gugun Gunara";
-export const EMAIL = "halo@gunaraconsultant.com";
+export const EMAIL = "gunara@pusatperizinan.com";
+
+/** Jaringan domain resmi Gunara Consultant */
+export const DOMAIN_MAIN = "pusatperizinan.com";
+export const DOMAIN_MAIN_URL = "https://pusatperizinan.com";
+export const DOMAIN_ALT = "gunara.web.id";
+export const DOMAIN_ALT_URL = "https://gunara.web.id";
 
 export function waLink(message: string) {
   return `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(message)}`;

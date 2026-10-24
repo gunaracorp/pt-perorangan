@@ -63,25 +63,25 @@ export function RegistrationForm() {
   };
 
   const inputCls =
-    "w-full rounded-xl border border-[#d4af37]/20 bg-[#05060A]/60 px-4 py-3.5 text-sm text-[#EDE6D6] placeholder:text-[#EDE6D6]/30 outline-none transition-all duration-300 focus:border-[#d4af37]/60 focus:bg-[#05060A] focus:shadow-[0_0_0_3px_rgba(212,175,55,0.12)]";
+    "w-full rounded-xl border border-[#7C3AED]/20 bg-[#FBFAFF]/60 px-4 py-3.5 text-sm text-[#241A4F] placeholder:text-[#241A4F]/30 outline-none transition-all duration-300 focus:border-[#7C3AED]/60 focus:bg-[#FBFAFF] focus:shadow-[0_0_0_3px_rgba(124, 58, 237,0.12)]";
 
   return (
     <section id="daftar" className="relative overflow-hidden py-24 md:py-32">
       <div className="absolute inset-0 bg-grid-lux opacity-50" />
-      <div className="aurora left-[10%] top-[20%] h-[380px] w-[420px] bg-[#d4af37]/12" />
+      <div className="aurora left-[10%] top-[20%] h-[380px] w-[420px] bg-[#7C3AED]/12" />
 
       <div className="relative z-10 mx-auto max-w-6xl px-4 md:px-8">
         <div className="grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr]">
           {/* left copy */}
           <Reveal variant="left">
-            <p className="text-[11px] font-bold tracking-[0.34em] text-[#d4af37]">
+            <p className="text-[11px] font-bold tracking-[0.34em] text-[#7C3AED]">
               FORMULIR PENDAFTARAN KILAT
             </p>
-            <h2 className="font-serif-lux mt-4 text-3xl font-bold leading-tight text-[#EDE6D6] md:text-5xl">
+            <h2 className="font-serif-lux mt-4 text-3xl font-bold leading-tight text-[#241A4F] md:text-5xl">
               Daftar Sekarang,{" "}
               <span className="text-gold-grad italic">PT Anda Sah Besok</span>
             </h2>
-            <p className="mt-5 max-w-lg text-[15px] leading-relaxed text-[#EDE6D6]/60">
+            <p className="mt-5 max-w-lg text-[15px] leading-relaxed text-[#241A4F]/60">
               Isi formulir 30 detik — data Anda tersusun rapi dan langsung terkirim ke tim
               kami via WhatsApp. Lalu transfer dan kirim 3 dokumen: proses 1 hari langsung
               dimulai.
@@ -92,9 +92,9 @@ export function RegistrationForm() {
                 "Dokumen KTP & NPWP Anda dijaga standar ISO 9001:2015",
                 "Tanpa biaya apa pun sebelum Anda setuju dengan kontrak",
               ].map((item) => (
-                <li key={item} className="flex items-center gap-3 text-sm text-[#EDE6D6]/75">
-                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-[#d4af37]/30 bg-[#d4af37]/10">
-                    <BadgeCheck className="h-4 w-4 text-[#f1de9b]" />
+                <li key={item} className="flex items-center gap-3 text-sm text-[#241A4F]/75">
+                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-[#7C3AED]/30 bg-[#7C3AED]/10">
+                    <BadgeCheck className="h-4 w-4 text-[#6D28D9]" />
                   </span>
                   {item}
                 </li>
@@ -102,9 +102,9 @@ export function RegistrationForm() {
             </ul>
             <div className="glass gold-hairline mt-9 inline-flex items-center gap-3 rounded-2xl px-5 py-4">
               <FileUp className="h-6 w-6 shrink-0 text-[#25D366]" />
-              <span className="text-xs leading-relaxed text-[#EDE6D6]/65">
+              <span className="text-xs leading-relaxed text-[#241A4F]/65">
                 Setelah kirim form:{" "}
-                <span className="font-semibold text-[#f1de9b]">
+                <span className="font-semibold text-[#6D28D9]">
                   transfer ke BCA + foto KTP, NPWP, alamat
                 </span>{" "}
                 — dikirim ke WhatsApp {WA_DISPLAY}
@@ -119,17 +119,17 @@ export function RegistrationForm() {
               noValidate
               className="glass-strong gold-hairline glow-gold relative rounded-3xl p-7 md:p-9"
             >
-              <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-transparent via-[#f1de9b] to-transparent" />
+              <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-transparent via-[#6D28D9] to-transparent" />
               <div className="mb-7 flex items-center gap-3">
-                <Sparkles className="h-5 w-5 text-[#d4af37]" />
-                <h3 className="font-serif-lux text-xl font-semibold text-[#EDE6D6]">
+                <Sparkles className="h-5 w-5 text-[#7C3AED]" />
+                <h3 className="font-serif-lux text-xl font-semibold text-[#241A4F]">
                   Kirim Permintaan Pendaftaran
                 </h3>
               </div>
 
               <div className="grid gap-4.5">
                 <div>
-                  <label htmlFor="reg-name" className="mb-1.5 block text-xs font-semibold tracking-wide text-[#EDE6D6]/70">
+                  <label htmlFor="reg-name" className="mb-1.5 block text-xs font-semibold tracking-wide text-[#241A4F]/70">
                     Nama Lengkap (sesuai KTP) *
                   </label>
                   <input
@@ -144,7 +144,7 @@ export function RegistrationForm() {
                 </div>
 
                 <div>
-                  <label htmlFor="reg-phone" className="mb-1.5 block text-xs font-semibold tracking-wide text-[#EDE6D6]/70">
+                  <label htmlFor="reg-phone" className="mb-1.5 block text-xs font-semibold tracking-wide text-[#241A4F]/70">
                     Nomor WhatsApp *
                   </label>
                   <input
@@ -159,7 +159,7 @@ export function RegistrationForm() {
                 </div>
 
                 <fieldset>
-                  <legend className="mb-2 block text-xs font-semibold tracking-wide text-[#EDE6D6]/70">
+                  <legend className="mb-2 block text-xs font-semibold tracking-wide text-[#241A4F]/70">
                     Paket yang Dipilih
                   </legend>
                   <div className="grid gap-2.5 sm:grid-cols-3">
@@ -174,8 +174,8 @@ export function RegistrationForm() {
                           onClick={() => setPkgId(t.id)}
                           className={`relative rounded-xl border px-3 py-3 text-left transition-all duration-300 ${
                             active
-                              ? "border-[#d4af37]/70 bg-gradient-to-br from-[#d4af37]/18 to-transparent shadow-[0_10px_30px_-12px_rgba(212,175,55,0.5)]"
-                              : "border-[#d4af37]/15 bg-[#05060A]/50 hover:border-[#d4af37]/40"
+                              ? "border-[#7C3AED]/70 bg-gradient-to-br from-[#7C3AED]/18 to-transparent shadow-[0_10px_30px_-12px_rgba(124, 58, 237,0.5)]"
+                              : "border-[#7C3AED]/15 bg-[#FBFAFF]/50 hover:border-[#7C3AED]/40"
                           }`}
                         >
                           {t.badge && (
@@ -185,16 +185,16 @@ export function RegistrationForm() {
                           )}
                           <span
                             className={`font-serif-lux block text-[13px] font-bold leading-tight ${
-                              active ? "text-[#f1de9b]" : "text-[#EDE6D6]/80"
+                              active ? "text-[#6D28D9]" : "text-[#241A4F]/80"
                             }`}
                           >
                             {t.id === "sultan-20x" ? "Sultan 20X" : t.id === "legalitas-website" ? "Legalitas + Web" : "Legalitas"}
                           </span>
                           <span className="mt-1 flex items-center gap-1">
-                            <span className={`text-sm font-bold ${active ? "text-gold-grad" : "text-[#EDE6D6]/70"}`}>
+                            <span className={`text-sm font-bold ${active ? "text-gold-grad" : "text-[#241A4F]/70"}`}>
                               Rp{t.price}
                             </span>
-                            {active && <Crown className="h-3 w-3 text-[#d4af37]" />}
+                            {active && <Crown className="h-3 w-3 text-[#7C3AED]" />}
                           </span>
                         </button>
                       );
@@ -204,7 +204,7 @@ export function RegistrationForm() {
 
                 <div className="grid gap-4.5 sm:grid-cols-1">
                   <div>
-                    <label htmlFor="reg-biz" className="mb-1.5 block text-xs font-semibold tracking-wide text-[#EDE6D6]/70">
+                    <label htmlFor="reg-biz" className="mb-1.5 block text-xs font-semibold tracking-wide text-[#241A4F]/70">
                       Bidang Usaha
                     </label>
                     <select
@@ -214,7 +214,7 @@ export function RegistrationForm() {
                       className={`${inputCls} appearance-none`}
                     >
                       {BIZ_OPTIONS.map((o) => (
-                        <option key={o} value={o} className="bg-[#0a0c14]">
+                        <option key={o} value={o} className="bg-[#F3F0FE]">
                           {o}
                         </option>
                       ))}
@@ -223,7 +223,7 @@ export function RegistrationForm() {
                 </div>
 
                 <div>
-                  <label htmlFor="reg-note" className="mb-1.5 block text-xs font-semibold tracking-wide text-[#EDE6D6]/70">
+                  <label htmlFor="reg-note" className="mb-1.5 block text-xs font-semibold tracking-wide text-[#241A4F]/70">
                     Nama PT yang Diinginkan / Catatan (opsional)
                   </label>
                   <textarea
@@ -250,7 +250,7 @@ export function RegistrationForm() {
                   Daftar & Kirim ke WhatsApp Sekarang
                 </button>
 
-                <p className="text-center text-[11px] leading-relaxed text-[#EDE6D6]/40">
+                <p className="text-center text-[11px] leading-relaxed text-[#241A4F]/40">
                   Dengan mengirim, Anda diarahkan ke WhatsApp resmi kami ({WA_DISPLAY}).
                   Pembayaran hanya ke rekening resmi BCA a.n. Gugun Gunara — proses 1 hari
                   dimulai setelah transfer & dokumen lengkap.

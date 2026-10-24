@@ -27,9 +27,9 @@ export function Testimonials() {
   return (
     <section
       id="testimoni"
-      className="relative overflow-hidden border-y border-[#d4af37]/10 bg-[#07080e]/60 py-24 md:py-32"
+      className="relative overflow-hidden border-y border-[#7C3AED]/10 bg-[#F6F4FE]/60 py-24 md:py-32"
     >
-      <div className="aurora left-[20%] top-[-10%] h-[320px] w-[520px] bg-[#d4af37]/8" />
+      <div className="aurora left-[20%] top-[-10%] h-[320px] w-[520px] bg-[#7C3AED]/8" />
 
       <div
         className="relative z-10 mx-auto max-w-4xl px-4 md:px-8"
@@ -37,20 +37,20 @@ export function Testimonials() {
         onMouseLeave={() => setPaused(false)}
       >
         <Reveal className="text-center">
-          <p className="text-[11px] font-bold tracking-[0.34em] text-[#d4af37]">
+          <p className="text-[11px] font-bold tracking-[0.34em] text-[#7C3AED]">
             TESTIMONI ASLI
           </p>
-          <h2 className="font-serif-lux mt-4 text-3xl font-bold leading-tight text-[#EDE6D6] md:text-5xl">
+          <h2 className="font-serif-lux mt-4 text-3xl font-bold leading-tight text-[#241A4F] md:text-5xl">
             Kata Mereka yang Sudah{" "}
             <span className="text-gold-grad italic">Legal & Tenang</span>
           </h2>
-          <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-[#d4af37]/25 bg-[#d4af37]/8 px-4 py-2">
+          <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-[#7C3AED]/25 bg-[#7C3AED]/8 px-4 py-2">
             <div className="flex gap-0.5">
               {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} className="h-3.5 w-3.5 fill-[#d4af37] text-[#d4af37]" />
+                <Star key={i} className="h-3.5 w-3.5 fill-[#7C3AED] text-[#7C3AED]" />
               ))}
             </div>
-            <span className="text-xs font-semibold text-[#f1de9b]">
+            <span className="text-xs font-semibold text-[#6D28D9]">
               4.9/5.0 — rata-rata kepuasan klien
             </span>
           </div>
@@ -58,24 +58,24 @@ export function Testimonials() {
 
         <Reveal delay={150} variant="scale" className="mt-12">
           <div className="glass-strong gold-hairline relative rounded-3xl px-7 py-10 md:px-14 md:py-12">
-            <Quote className="absolute -top-5 left-8 h-11 w-11 rounded-full border border-[#d4af37]/30 bg-[#0a0c14] p-2.5 text-[#d4af37]" />
+            <Quote className="absolute -top-5 left-8 h-11 w-11 rounded-full border border-[#7C3AED]/30 bg-[#F3F0FE] p-2.5 text-[#7C3AED]" />
 
             <div key={index} className="testi-enter min-h-[190px] md:min-h-[160px]">
-              <span className="mb-4 inline-block rounded-full border border-[#d4af37]/30 bg-[#d4af37]/10 px-3 py-1 text-[10px] font-bold tracking-[0.16em] text-[#f1de9b]">
+              <span className="mb-4 inline-block rounded-full border border-[#7C3AED]/30 bg-[#7C3AED]/10 px-3 py-1 text-[10px] font-bold tracking-[0.16em] text-[#6D28D9]">
                 {t.pkg}
               </span>
-              <p className="font-serif-lux text-lg font-medium leading-relaxed text-[#EDE6D6]/90 md:text-[1.4rem] md:leading-relaxed">
+              <p className="font-serif-lux text-lg font-medium leading-relaxed text-[#241A4F]/90 md:text-[1.4rem] md:leading-relaxed">
                 “{t.quote}”
               </p>
               <div className="mt-8 flex items-center gap-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full border border-[#d4af37]/40 bg-gradient-to-br from-[#d4af37]/20 to-transparent">
-                  <span className="font-serif-lux text-sm font-bold text-[#f1de9b]">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full border border-[#7C3AED]/40 bg-gradient-to-br from-[#7C3AED]/20 to-transparent">
+                  <span className="font-serif-lux text-sm font-bold text-[#6D28D9]">
                     {t.initials}
                   </span>
                 </div>
                 <div>
-                  <p className="text-sm font-bold text-[#EDE6D6]">{t.name}</p>
-                  <p className="mt-0.5 text-xs text-[#EDE6D6]/50">{t.role}</p>
+                  <p className="text-sm font-bold text-[#241A4F]">{t.name}</p>
+                  <p className="mt-0.5 text-xs text-[#241A4F]/50">{t.role}</p>
                 </div>
               </div>
             </div>
@@ -91,8 +91,8 @@ export function Testimonials() {
                       aria-label={`Testimoni ${i + 1}`}
                       className={`h-1.5 rounded-full transition-all duration-400 ${
                         i === index
-                          ? "w-8 bg-gradient-to-r from-[#d4af37] to-[#f1de9b]"
-                          : "w-3 bg-white/15 hover:bg-white/30"
+                          ? "w-8 bg-gradient-to-r from-[#7C3AED] to-[#6D28D9]"
+                          : "w-3 bg-[#7C3AED]/20 hover:bg-[#7C3AED]/[0.05]0"
                       }`}
                     />
                   ))}
@@ -100,10 +100,10 @@ export function Testimonials() {
                 {/* autoplay progress */}
                 <span
                   key={`progress-${index}-${paused}`}
-                  className="hidden h-1 w-14 overflow-hidden rounded-full bg-white/10 sm:block"
+                  className="hidden h-1 w-14 overflow-hidden rounded-full bg-[#7C3AED]/12 sm:block"
                 >
                   <span
-                    className={`block h-full rounded-full bg-[#d4af37]/70 ${paused ? "w-full opacity-40" : "progress-run"}`}
+                    className={`block h-full rounded-full bg-[#7C3AED]/70 ${paused ? "w-full opacity-40" : "progress-run"}`}
                   />
                 </span>
               </div>
@@ -111,14 +111,14 @@ export function Testimonials() {
                 <button
                   onClick={prev}
                   aria-label="Testimoni sebelumnya"
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-[#d4af37]/30 text-[#EDE6D6]/70 transition-all hover:border-[#d4af37]/60 hover:text-[#f1de9b]"
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-[#7C3AED]/30 text-[#241A4F]/70 transition-all hover:border-[#7C3AED]/60 hover:text-[#6D28D9]"
                 >
                   <ChevronLeft className="h-5 w-5" />
                 </button>
                 <button
                   onClick={next}
                   aria-label="Testimoni berikutnya"
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-[#d4af37]/30 text-[#EDE6D6]/70 transition-all hover:border-[#d4af37]/60 hover:text-[#f1de9b]"
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-[#7C3AED]/30 text-[#241A4F]/70 transition-all hover:border-[#7C3AED]/60 hover:text-[#6D28D9]"
                 >
                   <ChevronRight className="h-5 w-5" />
                 </button>

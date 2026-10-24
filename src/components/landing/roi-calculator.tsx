@@ -60,19 +60,19 @@ export function RoiCalculator() {
 
   return (
     <section className="relative overflow-hidden py-24 md:py-28">
-      <div className="aurora right-[-8%] top-[10%] h-[360px] w-[360px] bg-[#d4af37]/12" />
+      <div className="aurora right-[-8%] top-[10%] h-[360px] w-[360px] bg-[#7C3AED]/12" />
 
       <div className="relative z-10 mx-auto max-w-5xl px-4 md:px-8">
         <Reveal className="mx-auto max-w-3xl text-center">
-          <p className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[0.34em] text-[#d4af37]">
+          <p className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[0.34em] text-[#7C3AED]">
             <Calculator className="h-4 w-4" />
             KALKULATOR OMZET 20X
           </p>
-          <h2 className="font-serif-lux mt-4 text-3xl font-bold leading-tight text-[#EDE6D6] md:text-5xl">
+          <h2 className="font-serif-lux mt-4 text-3xl font-bold leading-tight text-[#241A4F] md:text-5xl">
             Coba Sendiri: Geser, Lihat{" "}
             <span className="text-gold-grad italic">Potensi 20 Kali Lipat</span> Anda
           </h2>
-          <p className="mt-5 text-[15px] leading-relaxed text-[#EDE6D6]/60">
+          <p className="mt-5 text-[15px] leading-relaxed text-[#241A4F]/60">
             Geser omzet bulanan Anda saat ini — dan lihat sendiri apa yang terjadi
             bila sistem Paket Sultan 20X bekerja untuk bisnis Anda.
           </p>
@@ -89,13 +89,13 @@ export function RoiCalculator() {
                 <div className="flex items-end justify-between gap-4">
                   <label
                     htmlFor="roi-range"
-                    className="text-xs font-bold uppercase tracking-[0.18em] text-[#EDE6D6]/55"
+                    className="text-xs font-bold uppercase tracking-[0.18em] text-[#241A4F]/55"
                   >
                     Omzet Anda Sekarang / Bulan
                   </label>
                   <span
                     key={current}
-                    className="comp-pop rounded-lg border border-[#d4af37]/35 bg-[#d4af37]/10 px-3 py-1.5 font-serif-lux text-lg font-bold text-[#f1de9b]"
+                    className="comp-pop rounded-lg border border-[#7C3AED]/35 bg-[#7C3AED]/10 px-3 py-1.5 font-serif-lux text-lg font-bold text-[#6D28D9]"
                   >
                     {fmt(current)}
                   </span>
@@ -113,21 +113,21 @@ export function RoiCalculator() {
                   style={{ "--range-progress": `${pct}%` } as CSSProperties}
                   aria-valuetext={fmt(current)}
                 />
-                <div className="mt-2.5 flex justify-between text-[10px] font-semibold uppercase tracking-wider text-[#EDE6D6]/35">
+                <div className="mt-2.5 flex justify-between text-[10px] font-semibold uppercase tracking-wider text-[#241A4F]/35">
                   <span>Rp3 jt</span>
                   <span>Rp600 jt</span>
                 </div>
 
                 {/* result card */}
                 <div className="count-box mt-8 rounded-2xl p-6">
-                  <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#d4af37]">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#7C3AED]">
                     POTENSI ANDA DENGAN SISTEM 20X
                   </p>
                   <p className="font-serif-lux text-gold-grad mt-2 text-4xl font-bold leading-none tabular-nums md:text-5xl">
                     {fmt(Math.round(easedTarget))}
-                    <span className="ml-2 text-base text-[#EDE6D6]/45">/bulan</span>
+                    <span className="ml-2 text-base text-[#241A4F]/45">/bulan</span>
                   </p>
-                  <p className="mt-3 flex items-center gap-2 text-sm text-[#EDE6D6]/60">
+                  <p className="mt-3 flex items-center gap-2 text-sm text-[#241A4F]/60">
                     <TrendingUp className="h-4 w-4 text-[#4ade80]" />
                     Setara{" "}
                     <span className="font-bold text-[#4ade80]">
@@ -140,40 +140,40 @@ export function RoiCalculator() {
 
               {/* right: comparison bars */}
               <div className="flex flex-col">
-                <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#EDE6D6]/55">
+                <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#241A4F]/55">
                   Visualisasi Lompatan Omzet
                 </p>
-                <div className="mt-6 flex flex-1 items-end justify-center gap-10 rounded-2xl border border-[#d4af37]/12 bg-white/[0.02] px-6 pb-6 pt-10 md:min-h-[300px]">
+                <div className="mt-6 flex flex-1 items-end justify-center gap-10 rounded-2xl border border-[#7C3AED]/12 bg-white/[0.02] px-6 pb-6 pt-10 md:min-h-[300px]">
                   <div className="flex h-full w-20 flex-col items-center justify-end gap-3 md:w-24">
-                    <span className="whitespace-nowrap text-[11px] font-semibold text-[#EDE6D6]/55">
+                    <span className="whitespace-nowrap text-[11px] font-semibold text-[#241A4F]/55">
                       {fmt(current)}
                     </span>
                     <div
-                      className="w-full rounded-t-xl bg-gradient-to-t from-[#3a3320] to-[#6b5c2e] transition-all duration-700"
+                      className="w-full rounded-t-xl bg-gradient-to-t from-[#4C1D95] to-[#7C3AED] transition-all duration-700"
                       style={{ height: `${Math.max(6, (current / target) * 100)}%` }}
                     />
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-[#EDE6D6]/40">
+                    <span className="text-[10px] font-bold uppercase tracking-widest text-[#241A4F]/40">
                       Sekarang
                     </span>
                   </div>
                   <div className="flex h-full w-24 flex-col items-center justify-end gap-3 md:w-28">
                     <span
                       key={Math.round(target)}
-                      className="comp-pop whitespace-nowrap text-[11px] font-bold text-[#f1de9b]"
+                      className="comp-pop whitespace-nowrap text-[11px] font-bold text-[#6D28D9]"
                     >
                       {fmt(Math.round(target))}
                     </span>
                     <div
                       key={`bar-${Math.round(target)}`}
-                      className="roi-bar-grow slot-bar w-full rounded-t-xl bg-gradient-to-t from-[#8a6a1f] via-[#d4af37] to-[#f7ecc9]"
+                      className="roi-bar-grow slot-bar w-full rounded-t-xl bg-gradient-to-t from-[#5B21B6] via-[#7C3AED] to-[#A78BFA]"
                       style={{ height: "100%" }}
                     />
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-[#d4af37]">
+                    <span className="text-[10px] font-bold uppercase tracking-widest text-[#7C3AED]">
                       20X
                     </span>
                   </div>
                 </div>
-                <p className="mt-4 text-center text-[11px] leading-relaxed text-[#EDE6D6]/40">
+                <p className="mt-4 text-center text-[11px] leading-relaxed text-[#241A4F]/40">
                   Ilustrasi berdasarkan sistem pendampingan Paket Sultan 20X — hasil
                   bergantung pada kedisiplinan mengikuti aturan program.
                 </p>
@@ -190,9 +190,9 @@ export function RoiCalculator() {
               Klaim Potensi {fmt(Math.round(target))} Ini — Paket Sultan 20X
               <ArrowRight className="h-4.5 w-4.5" />
             </a>
-            <p className="mt-3 text-center text-[11px] text-[#EDE6D6]/45">
+            <p className="mt-3 text-center text-[11px] text-[#241A4F]/45">
               Garansi: ikuti aturan kami — omzet belum naik? Pendampingan diulang{" "}
-              <span className="font-semibold text-[#f1de9b]">gratis sampai naik</span>.
+              <span className="font-semibold text-[#6D28D9]">gratis sampai naik</span>.
             </p>
           </div>
         </Reveal>
