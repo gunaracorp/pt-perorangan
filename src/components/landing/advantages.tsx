@@ -2,11 +2,11 @@
 
 import {
   Zap,
-  FileCheck2,
+  ShieldCheck,
   HandCoins,
   Crown,
-  ShieldCheck,
-  MapPin,
+  FileCheck2,
+  Fingerprint,
   TrendingUp,
 } from "lucide-react";
 import { Reveal, useTilt, Counter } from "./reveal";
@@ -15,37 +15,37 @@ import { waLink, WA_DEFAULT_MSG } from "@/lib/landing-constants";
 const CARDS = [
   {
     icon: Zap,
-    title: "2–4 Hari Kerja",
-    desc: "NIB dan sertifikat badan usaha terbit dalam hitungan hari — bukan bulan. Kami bekerja secepat Anda butuh membuka gerbang bisnis.",
+    title: "1 Hari Kerja — Langsung Jadi",
+    desc: "Transfer pagi, kirim KTP + NPWP + alamat siangnya — besoknya NIB dan Sertifikat Pendaftaran PT Anda sudah sah. Tanpa antre, tanpa drama birokrasi.",
     span: "md:col-span-2",
     big: true,
   },
   {
-    icon: HandCoins,
-    title: "Mulai Rp750.000",
-    desc: "Tanpa notaris tanpa biaya siluman. Satu kali bayar, legalitas lengkap.",
+    icon: ShieldCheck,
+    title: "Aset Pribadi Terlindungi",
+    desc: "Status badan hukum membuat tanggung jawab Anda terbatas — hutang dan risiko usaha tidak menyentuh tabungan, rumah, dan kendaraan pribadi Anda.",
   },
   {
     icon: Crown,
-    title: "Akses Tender & Korporat",
-    desc: "Dengan badan usaha resmi, Anda bisa ikut pengadaan pemerintah, bekerja sama dengan perusahaan besar, dan buka rekening korporat.",
+    title: "Nama Depannya “PT”",
+    desc: "Kredibilitas lompat kelas. Klien korporat, bank, dan mitra besar jauh lebih percaya kepada PT daripada usaha tanpa badan hukum.",
   },
   {
-    icon: ShieldCheck,
-    title: "Garansi Proses Ulang",
-    desc: "Ditolak bukan karena dokumen Anda? Kami proses ulang gratis. Itu tertulis di kontrak.",
+    icon: HandCoins,
+    title: "Tanpa Notaris — Mulai Rp750rb",
+    desc: "Akta pendirian digantikan jalur resmi OSS-RBA. Hemat biaya notaris jutaan rupiah dan modal dasar bebas Anda tentukan sendiri.",
   },
   {
     icon: FileCheck2,
     title: "Diperiksa Dua Kali",
-    desc: "Setiap berkas melewati dual-review khas metodologi Mic Kinsey sebelum masuk instansi — itulah rahasia tingkat keberhasilan kami.",
+    desc: "Setiap berkas melewati dual-review khas metodologi Mic Kinsey sebelum masuk sistem — itulah rahasia tingkat keberhasilan 98% kami.",
     span: "md:col-span-2",
     big: true,
   },
   {
-    icon: MapPin,
-    title: "38 Provinsi",
-    desc: "Tim ahli lokal dari Aceh sampai Papua Pegunungan.",
+    icon: Fingerprint,
+    title: "1 NIK = 1 PT",
+    desc: "Slot eksklusif: satu KTP hanya berhak satu PT Perseorangan. Punya PT Anda sebelum kepemilikan tahun ini terpakai.",
   },
 ];
 
@@ -72,16 +72,16 @@ export function Advantages() {
       <div className="relative z-10 mx-auto max-w-7xl px-4 md:px-8">
         <Reveal className="mx-auto max-w-3xl text-center">
           <p className="text-[11px] font-bold tracking-[0.34em] text-[#d4af37]">
-            MENGAPA GUNARA
+            KELEBIHAN PT PERSEORANGAN
           </p>
           <h2 className="font-serif-lux mt-4 text-3xl font-bold leading-tight text-[#EDE6D6] md:text-5xl">
-            Alasan Pemilik Usaha{" "}
-            <span className="text-gold-grad italic">Tidak Pernah Ragu</span> kepada Kami
+            Kenapa Ribuan Pemilik Usaha{" "}
+            <span className="text-gold-grad italic">Memilih PT Perseorangan</span>
           </h2>
           <p className="mt-5 text-[15px] leading-relaxed text-[#EDE6D6]/60">
-            Kami membangun kepercayaan lewat legalitas yang benar, proses yang transparan,
-            dan standar mutu internasional. Berakar dari Mic Kinsey sejak 2009 — kini
-            melayani 38 provinsi Indonesia.
+            Semua keuntungan badan hukum PT — tanpa biaya notaris, tanpa mitra, tanpa
+            modal ratusan juta. Diurus Gunara Consultant, tersertifikasi ISO 9001:2015,
+            berakar dari Mic Kinsey sejak 2009.
           </p>
         </Reveal>
 
@@ -131,9 +131,9 @@ export function Advantages() {
               >
                 <TrendingUp className="h-7 w-7" />
                 <span className="font-serif-lux text-xl font-bold leading-snug">
-                  Naikkan Level
+                  Klaim PT Anda
                   <br />
-                  Usaha Anda Hari Ini
+                  Hari Ini Juga
                 </span>
                 <span className="text-xs font-semibold opacity-80">
                   Klik — chat langsung dengan tim pakar
@@ -167,7 +167,7 @@ export function Advantages() {
                   { v: 1200, s: "+", l: "Klien" },
                   { v: 98, s: "%", l: "Sukses" },
                 ].map((m) => (
-                  <div key={m.l} className="border-l border-[#d4af37]/20 pl-4 text-left first:border-0 first:pl-0 md:text-center md:border-0 md:pl-0">
+                  <div key={m.l}>
                     <Counter
                       value={m.v}
                       suffix={m.s}

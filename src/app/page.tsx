@@ -5,6 +5,7 @@ import { InstitutionMarquee } from "@/components/landing/marquee";
 import { Advantages } from "@/components/landing/advantages";
 import { Comparison } from "@/components/landing/comparison";
 import { Process } from "@/components/landing/process";
+import { DocRequirements } from "@/components/landing/doc-requirements";
 import { Pricing } from "@/components/landing/pricing";
 import { Testimonials } from "@/components/landing/testimonials";
 import { Payment } from "@/components/landing/payment";
@@ -25,6 +26,7 @@ export default function Home() {
         <Advantages />
         <Comparison />
         <Process />
+        <DocRequirements />
         <Pricing />
         <Testimonials />
         <Payment />

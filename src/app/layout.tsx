@@ -19,34 +19,35 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Pendirian Badan Usaha Perseorangan Resmi — 2–4 Hari Kerja | Gunara Consultant",
+  title: "Pendirian PT Perseorangan — 1 Hari Jadi, Mulai Rp750rb | Gunara Consultant",
   description:
-    "Legalitas usaha perseorangan 100% resmi tanpa notaris. NIB, sertifikat, NPWP — selesai 2–4 hari kerja mulai Rp750.000. Tersertifikasi ISO 9001:2015, terdaftar Kemenkumham RI, melayani 38 provinsi Indonesia.",
+    "PT Perseorangan sah dalam 1 hari kerja: cukup KTP + NPWP + alamat, tanpa notaris. NIB, Sertifikat Pendaftaran, dan Akta Perseorangan diurus penuh lewat jalur resmi OSS-RBA & Kemenkumham RI. Harga khusus mulai Rp750.000 dari normal Rp2.000.000. Tersertifikasi ISO 9001:2015, melayani 38 provinsi.",
   keywords: [
-    "badan usaha perseorangan",
-    "pendirian PO",
-    "UPTA",
-    "NIB OSS RBA",
-    "legalitas UMKM",
-    "izin usaha perseorangan",
-    "Gunara Consultant",
     "pendirian PT perseorangan",
-    "konultan perizinan",
+    "perseroan perseorangan",
+    "PT perorangan 1 hari",
+    "NIB PT perseorangan",
+    "sertifikat pendaftaran PT",
+    "akta perseorangan",
+    "PT tanpa notaris",
+    "badan hukum UMKM",
+    "Gunara Consultant",
+    "jasa pendirian PT murah",
   ],
   authors: [{ name: "Gunara Consultant" }],
   openGraph: {
-    title: "Badan Usaha Perseorangan Resmi dalam 2–4 Hari | Gunara Consultant",
+    title: "PT Perseorangan Sah dalam 1 Hari Kerja — Mulai Rp750rb | Gunara Consultant",
     description:
-      "Tanpa notaris. Mulai Rp750.000. ISO 9001:2015 • Kemenkumham RI • 38 Provinsi. Konsultasi gratis via WhatsApp.",
+      "Cukup KTP + NPWP + alamat, tanpa notaris. NIB + Sertifikat Pendaftaran + Akta Perseorangan terbit via jalur resmi OSS-RBA & Kemenkumham RI. Konsultasi gratis via WhatsApp.",
     siteName: "Gunara Consultant",
     type: "website",
     locale: "id_ID",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Badan Usaha Perseorangan Resmi — Gunara Consultant",
+    title: "PT Perseorangan Sah dalam 1 Hari — Gunara Consultant",
     description:
-      "Legalitas usaha Anda selesai 2–4 hari kerja, mulai Rp750.000. Standar kelas dunia ISO 9001:2015.",
+      "Cukup KTP + NPWP + alamat. Mulai Rp750rb dari normal Rp2jt. Standar kelas dunia ISO 9001:2015.",
   },
   robots: { index: true, follow: true },
 };

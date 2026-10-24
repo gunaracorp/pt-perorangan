@@ -1,12 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { Send, ShieldCheck, Sparkles, BadgeCheck } from "lucide-react";
+import { Send, ShieldCheck, Sparkles, BadgeCheck, FileUp } from "lucide-react";
 import { Reveal } from "./reveal";
 import { waLink, WA_DISPLAY, PRICING_TIERS } from "@/lib/landing-constants";
 import { toast } from "@/hooks/use-toast";
 
-const PACKAGE_OPTIONS = PRICING_TIERS.map((t) => t.name);
+const PACKAGE_OPTIONS = PRICING_TIERS.map((t) => `${t.name} — Rp${t.price}`);
 const BIZ_OPTIONS = [
   "Kuliner / F&B",
   "Fashion / Konveksi",
@@ -39,15 +39,15 @@ export function RegistrationForm() {
     setError("");
 
     const msg = [
-      "Halo Gunara Consultant! Saya mendaftar via Landing Page Badan Usaha Perseorangan:",
+      "Halo Gunara Consultant! Saya mendaftar via Landing Page PT Perseorangan:",
       "",
       `• Nama: ${name.trim()}`,
       `• No. WhatsApp: ${phone.trim()}`,
-      `• Paket yang diminati: ${pkg}`,
+      `• Paket yang dipilih: ${pkg}`,
       `• Bidang usaha: ${biz}`,
       note.trim() ? `• Catatan: ${note.trim()}` : "",
       "",
-      "Mohon dibantu proses pendaftarannya. Terima kasih!",
+      "Saya siap transfer ke BCA dan segera kirim 3 dokumen (KTP, NPWP, alamat usaha). Mohon diproses hari ini supaya PT saya jadi dalam 1 hari!",
     ]
       .filter(Boolean)
       .join("\n");
@@ -73,22 +73,22 @@ export function RegistrationForm() {
           {/* left copy */}
           <Reveal variant="left">
             <p className="text-[11px] font-bold tracking-[0.34em] text-[#d4af37]">
-              FORMULIR PENDAFTARAN
+              FORMULIR PENDAFTARAN KILAT
             </p>
             <h2 className="font-serif-lux mt-4 text-3xl font-bold leading-tight text-[#EDE6D6] md:text-5xl">
-              Amankan Slot Anda{" "}
-              <span className="text-gold-grad italic">Hari Ini</span>
+              Daftar Sekarang,{" "}
+              <span className="text-gold-grad italic">PT Anda Sah Besok</span>
             </h2>
             <p className="mt-5 max-w-lg text-[15px] leading-relaxed text-[#EDE6D6]/60">
-              Isi formulir 30 detik — data Anda langsung tersusun rapi dan terkirim ke tim
-              kami via WhatsApp. Konsultasi gratis, tanpa komitmen, dijawab cepat di jam
-              kerja.
+              Isi formulir 30 detik — data Anda tersusun rapi dan langsung terkirim ke tim
+              kami via WhatsApp. Lalu transfer dan kirim 3 dokumen: proses 1 hari langsung
+              dimulai.
             </p>
             <ul className="mt-8 flex flex-col gap-4">
               {[
                 "Dijawab langsung oleh tim pakar, bukan bot",
-                "Data dokumen Anda dijaga standar ISO 9001:2015",
-                "Tanpa biaya apa pun sebelum kontrak resmi",
+                "Dokumen KTP & NPWP Anda dijaga standar ISO 9001:2015",
+                "Tanpa biaya apa pun sebelum Anda setuju dengan kontrak",
               ].map((item) => (
                 <li key={item} className="flex items-center gap-3 text-sm text-[#EDE6D6]/75">
                   <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-[#d4af37]/30 bg-[#d4af37]/10">
@@ -98,11 +98,14 @@ export function RegistrationForm() {
                 </li>
               ))}
             </ul>
-            <div className="glass gold-hairline mt-9 inline-flex items-center gap-3 rounded-full px-5 py-3">
-              <ShieldCheck className="h-5 w-5 text-[#25D366]" />
-              <span className="text-xs text-[#EDE6D6]/65">
-                Diverifikasi ke WhatsApp resmi{" "}
-                <span className="font-semibold text-[#f1de9b]">{WA_DISPLAY}</span>
+            <div className="glass gold-hairline mt-9 inline-flex items-center gap-3 rounded-2xl px-5 py-4">
+              <FileUp className="h-6 w-6 shrink-0 text-[#25D366]" />
+              <span className="text-xs leading-relaxed text-[#EDE6D6]/65">
+                Setelah kirim form:{" "}
+                <span className="font-semibold text-[#f1de9b]">
+                  transfer ke BCA + foto KTP, NPWP, alamat
+                </span>{" "}
+                — dikirim ke WhatsApp {WA_DISPLAY}
               </span>
             </div>
           </Reveal>
@@ -125,7 +128,7 @@ export function RegistrationForm() {
               <div className="grid gap-4.5">
                 <div>
                   <label htmlFor="reg-name" className="mb-1.5 block text-xs font-semibold tracking-wide text-[#EDE6D6]/70">
-                    Nama Lengkap *
+                    Nama Lengkap (sesuai KTP) *
                   </label>
                   <input
                     id="reg-name"
@@ -156,7 +159,7 @@ export function RegistrationForm() {
                 <div className="grid gap-4.5 sm:grid-cols-2">
                   <div>
                     <label htmlFor="reg-pkg" className="mb-1.5 block text-xs font-semibold tracking-wide text-[#EDE6D6]/70">
-                      Paket yang Diminati
+                      Paket yang Dipilih
                     </label>
                     <select
                       id="reg-pkg"
@@ -195,14 +198,14 @@ export function RegistrationForm() {
 
                 <div>
                   <label htmlFor="reg-note" className="mb-1.5 block text-xs font-semibold tracking-wide text-[#EDE6D6]/70">
-                    Ceritakan Kebutuhan Anda (opsional)
+                    Nama PT yang Diinginkan / Catatan (opsional)
                   </label>
                   <textarea
                     id="reg-note"
                     value={note}
                     onChange={(e) => setNote(e.target.value)}
                     rows={3}
-                    placeholder="cth. Saya punya usaha katering rumahan, mau ikut tender kecil-kecilan…"
+                    placeholder="cth. PT Ahmad Sejahtera Abadi — untuk usaha katering…"
                     className={`${inputCls} resize-none`}
                   />
                 </div>
@@ -218,12 +221,13 @@ export function RegistrationForm() {
                   className="btn-gold mt-1 flex items-center justify-center gap-2.5 rounded-full py-4 text-[15px] font-bold"
                 >
                   <Send className="h-4.5 w-4.5" />
-                  Daftar Sekarang via WhatsApp
+                  Daftar & Kirim ke WhatsApp Sekarang
                 </button>
 
                 <p className="text-center text-[11px] leading-relaxed text-[#EDE6D6]/40">
                   Dengan mengirim, Anda diarahkan ke WhatsApp resmi kami ({WA_DISPLAY}).
-                  Pembayaran hanya setelah kontrak — ke rekening resmi BCA a.n. Gugun Gunara.
+                  Pembayaran hanya ke rekening resmi BCA a.n. Gugun Gunara — proses 1 hari
+                  dimulai setelah transfer & dokumen lengkap.
                 </p>
               </div>
             </form>

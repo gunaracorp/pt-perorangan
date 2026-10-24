@@ -26,35 +26,38 @@ export function Hero() {
               <span className="relative inline-flex h-2 w-2 rounded-full bg-[#f1de9b]" />
             </span>
             <span className="text-[11px] font-semibold tracking-[0.18em] text-[#f1de9b]">
-              DIPERCAYA 1.200+ USAHA DI 38 PROVINSI
+              SPESIALIS PT PERSEORANGAN · SEJAK 2009
             </span>
           </div>
 
           <h1 className="font-serif-lux text-[2.55rem] font-bold leading-[1.06] tracking-tight text-[#EDE6D6] sm:text-6xl lg:text-[4.35rem]">
-            Bisnis Anda Sah,
+            PT Atas Nama Anda,
             <br />
             <span className="text-gold-grad shine-wrap shine-sweep inline-block py-1 italic">
-              Dalam 2–4 Hari
+              Sah Dalam 1 Hari
             </span>
             <br />
-            Kerja Saja.
+            Kerja.
           </h1>
 
           <p className="mt-7 max-w-xl text-[15px] leading-relaxed text-[#EDE6D6]/70 md:text-base">
             <strong className="font-semibold text-[#f1de9b]">
-              Pendirian Badan Usaha Perseorangan (PO/UPTA)
+              Pendirian PT Perseorangan (Perseroan Perseorangan)
             </strong>{" "}
-            diurus penuh oleh konsultan bersertifikasi ISO 9001:2015 —{" "}
-            <em className="text-[#EDE6D6]/85">tanpa notaris, tanpa pusing birokrasi</em>. NIB,
-            sertifikat, sampai akses tender: semua selesai lewat jalur resmi pemerintah.
+            oleh konsultan bersertifikasi ISO 9001:2015 —{" "}
+            <em className="text-[#EDE6D6]/85">
+              tanpa notaris, cukup KTP + NPWP + Alamat
+            </em>
+            . NIB, Sertifikat Pendaftaran, dan Akta Perseorangan: semua terbit lewat jalur
+            resmi pemerintah.
           </p>
 
           <ul className="mt-7 grid gap-2.5 text-sm text-[#EDE6D6]/75 sm:grid-cols-2">
             {[
-              "100% jalur resmi OSS RBA",
-              "Mulai Rp750.000 — transparan",
-              "Garansi proses ulang bila ditolak",
-              "Dilaporkan progresnya tiap tahap",
+              "Cukup 3 dokumen — KTP, NPWP, Alamat",
+              "Tanpa notaris — hemat jutaan rupiah",
+              "Aset pribadi terlindungi badan hukum",
+              "Jalur resmi OSS-RBA & Kemenkumham RI",
             ].map((item) => (
               <li key={item} className="flex items-center gap-2.5">
                 <BadgeCheck className="h-4 w-4 shrink-0 text-[#d4af37]" />
@@ -71,13 +74,13 @@ export function Hero() {
               className="btn-gold group flex items-center justify-center gap-2.5 rounded-full px-8 py-4 text-[15px] font-bold tracking-wide"
             >
               <Sparkles className="h-4.5 w-4.5 transition-transform duration-300 group-hover:rotate-12" />
-              Daftar & Konsultasi Gratis
+              Daftar — PT Jadi Besok
             </a>
             <a
               href="#paket"
               className="glass gold-hairline flex items-center justify-center gap-2 rounded-full px-8 py-4 text-[15px] font-semibold text-[#EDE6D6] transition-all duration-300 hover:bg-[#d4af37]/10 hover:text-[#f1de9b]"
             >
-              Lihat Paket & Harga
+              Lihat 3 Paket & Harga
               <ArrowDown className="h-4 w-4 animate-bounce" />
             </a>
           </div>
@@ -118,44 +121,54 @@ export function Hero() {
                 <div className="flex items-center gap-2">
                   <Landmark className="h-5 w-5 text-[#d4af37]" />
                   <span className="text-[11px] font-bold tracking-[0.28em] text-[#d4af37]">
-                    OFFER SPESIAL
+                    OFFER HARI INI
                   </span>
                 </div>
                 <span className="rounded-full border border-[#d4af37]/40 bg-[#d4af37]/10 px-3 py-1 text-[10px] font-bold tracking-[0.14em] text-[#f1de9b]">
-                  TERBATAS
+                  SLOT TERBATAS
                 </span>
               </div>
 
               <h3 className="font-serif-lux mt-6 text-2xl font-semibold text-[#EDE6D6] md:text-[1.7rem]">
-                Badan Usaha Perseorangan
+                Pendirian PT Perseorangan
               </h3>
               <p className="mt-1.5 text-sm text-[#EDE6D6]/55">
-                PO / UPTA — paket legalitas terlengkap
+                Paket Legalitas — NIB + Sertifikat + Akta Perseorangan
               </p>
 
-              <div className="mt-7 flex items-end gap-2">
-                <span className="text-sm text-[#EDE6D6]/50 line-through">Rp1.500.000</span>
-                <span className="font-serif-lux text-gold-grad text-[3.2rem] font-bold leading-none">
-                  750<span className="text-[1.6rem]">rb</span>
+              <div className="mt-6 flex items-end gap-3">
+                <div className="flex flex-col">
+                  <span className="text-sm text-[#EDE6D6]/50 line-through decoration-red-400/70">
+                    Rp2.000.000
+                  </span>
+                  <div className="flex items-end gap-1.5">
+                    <span className="text-sm text-[#EDE6D6]/70">Rp</span>
+                    <span className="font-serif-lux text-gold-grad text-[3.2rem] font-bold leading-none">
+                      750<span className="text-[1.6rem]">rb</span>
+                    </span>
+                  </div>
+                </div>
+                <span className="mb-1.5 rounded-full bg-gradient-to-r from-[#b8342f] to-[#e0483f] px-2.5 py-1 text-[10px] font-black tracking-wide text-white shadow-lg">
+                  HEMAT 62%
                 </span>
               </div>
               <p className="mt-1 text-[11px] text-[#EDE6D6]/45">
-               *Termasuk NIB + Sertifikat + pemetaan KBLI oleh pakar
+                *Harga khusus hari ini — normal Rp2.000.000
               </p>
 
-              <div className="mt-7 grid grid-cols-2 gap-3">
+              <div className="mt-6 grid grid-cols-2 gap-3">
                 <div className="count-box flex items-center gap-2.5 rounded-xl px-3.5 py-3">
                   <Clock3 className="h-5 w-5 shrink-0 text-[#d4af37]" />
                   <div className="leading-tight">
-                    <p className="text-sm font-bold text-[#EDE6D6]">2–4 Hari</p>
-                    <p className="text-[10px] text-[#EDE6D6]/50">kerja selesai</p>
+                    <p className="text-sm font-bold text-[#EDE6D6]">1 Hari</p>
+                    <p className="text-[10px] text-[#EDE6D6]/50">langsung jadi</p>
                   </div>
                 </div>
                 <div className="count-box flex items-center gap-2.5 rounded-xl px-3.5 py-3">
                   <Banknote className="h-5 w-5 shrink-0 text-[#d4af37]" />
                   <div className="leading-tight">
-                    <p className="text-sm font-bold text-[#EDE6D6]">Tanpa Notaris</p>
-                    <p className="text-[10px] text-[#EDE6D6]/50">hemat biaya</p>
+                    <p className="text-sm font-bold text-[#EDE6D6]">3 Dokumen</p>
+                    <p className="text-[10px] text-[#EDE6D6]/50">KTP · NPWP · Alamat</p>
                   </div>
                 </div>
               </div>
@@ -164,7 +177,7 @@ export function Hero() {
                 <div className="flex items-center justify-between gap-3">
                   <div>
                     <p className="text-[10px] font-bold tracking-[0.2em] text-[#25D366]">
-                      PEMBAYARAN RESMI
+                      TRANSFER RESMI KE
                     </p>
                     <p className="mt-1 font-mono text-sm font-bold tracking-wider text-[#EDE6D6]">
                       BCA {BCA_ACCOUNT}
@@ -181,18 +194,18 @@ export function Hero() {
                 rel="noopener noreferrer"
                 className="btn-gold mt-6 flex items-center justify-center gap-2 rounded-full py-3.5 text-sm font-bold"
               >
-                Amankan Slot Saya Hari Ini
+                Transfer Sekarang — PT Sah Besok
               </a>
               <p className="mt-3 text-center text-[10px] text-[#EDE6D6]/40">
-                Slot penanganan minggu ini terbatas — diurus langsung oleh tim pakar
+                Transfer + kirim KTP, NPWP, alamat hari ini → 1 hari langsung jadi PT
               </p>
             </div>
           </div>
 
           {/* floating chips */}
           <div className="float-slow glass gold-hairline absolute -left-4 top-10 hidden rounded-2xl px-4 py-3 md:block lg:-left-10">
-            <p className="text-[10px] font-bold tracking-[0.16em] text-[#d4af37]">TERDAFTAR RESMI</p>
-            <p className="mt-0.5 text-[11px] text-[#EDE6D6]/70">Kemenkumham RI · 2024</p>
+            <p className="text-[10px] font-bold tracking-[0.16em] text-[#d4af37]">BADAN HUKUM RESMI</p>
+            <p className="mt-0.5 text-[11px] text-[#EDE6D6]/70">UU Cipta Kerja · OSS-RBA</p>
           </div>
           <div className="float-slower glass gold-hairline absolute -right-3 bottom-16 hidden rounded-2xl px-4 py-3 md:block lg:-right-8">
             <p className="text-[10px] font-bold tracking-[0.16em] text-[#d4af37]">TINGKAT SUKSES</p>

@@ -46,12 +46,12 @@ export function Payment() {
             PEMBAYARAN RESMI
           </p>
           <h2 className="font-serif-lux mt-4 text-3xl font-bold leading-tight text-[#EDE6D6] md:text-5xl">
-            Satu-Satunya <span className="text-gold-grad italic">Rekening Resmi</span>
+            Transfer ke <span className="text-gold-grad italic">Rekening Resmi</span> — PT Langsung Diproses
           </h2>
           <p className="mt-5 text-[15px] leading-relaxed text-[#EDE6D6]/60">
-            Seluruh pembayaran layanan Gunara Consultant HANYA ke rekening di bawah ini.
-            Kami tidak pernah memakai rekening pribadi lain, rekening perantara, atau
-            rekening atas nama siapa pun selain pendiri kami.
+            Seluruh pembayaran Gunara Consultant HANYA ke rekening di bawah ini. Setelah
+            transfer, kirim bukti + KTP, NPWP, dan alamat ke WhatsApp resmi kami —
+            pendirian PT Perseorangan Anda langsung diproses 1×24 jam.
           </p>
         </Reveal>
 
@@ -113,9 +113,10 @@ export function Payment() {
                 )}
               </button>
 
-              <p className="mt-4 text-center text-xs text-[#EDE6D6]/45">
-                Verifikasi langsung via WhatsApp resmi:{" "}
-                <span className="font-semibold text-[#f1de9b]">{WA_DISPLAY}</span>
+              <p className="mt-4 text-center text-xs leading-relaxed text-[#EDE6D6]/45">
+                Setelah transfer: kirim bukti + KTP, NPWP, alamat ke{" "}
+                <span className="font-semibold text-[#f1de9b]">{WA_DISPLAY}</span> — PT diproses
+                1×24 jam
               </p>
             </div>
           </div>

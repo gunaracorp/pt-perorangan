@@ -1,91 +1,95 @@
 "use client";
 
 import { useState } from "react";
-import { Check, X, ArrowRight } from "lucide-react";
+import { Check, X, ArrowRight, Crown } from "lucide-react";
 import { Reveal } from "./reveal";
 import { waLink } from "@/lib/landing-constants";
 
-type EntityKey = "po" | "pt-perseorangan" | "pt";
+type ChoiceKey = "tanpa-badan-hukum" | "pt-perseorangan" | "pt-notaris";
 
-const ENTITIES: Record<
-  EntityKey,
+const CHOICES: Record<
+  ChoiceKey,
   {
     name: string;
     tagline: string;
-    price: string;
+    cost: string;
     time: string;
-    bestFor: string;
+    verdict: string;
     pros: string[];
     cons: string[];
     waMsg: string;
+    recommended?: boolean;
   }
 > = {
-  po: {
-    name: "PO / UPTA",
-    tagline: "Badan Usaha Perseorangan",
-    price: "Rp750.000",
-    time: "2–4 hari kerja",
-    bestFor: "UMKM, pedagang, freelancer, usaha rumahan yang ingin cepat legal dengan biaya ringan",
+  "tanpa-badan-hukum": {
+    name: "Usaha Tanpa Badan Hukum",
+    tagline: "Jualan tanpa legalitas",
+    cost: "Rp0",
+    time: "Tidak ada proses",
+    verdict: "Kelihatannya gratis — sebenarnya pilihan paling mahal.",
     pros: [
-      "Tanpa notaris & tanpa modal dasar",
-      "Tercepat — 2–4 hari kerja selesai",
-      "Bisa ikut tender & pengadaan pemerintah",
-      "Buka rekening korporat & payment gateway",
-      "Pajak ringan di awal pengembangan usaha",
+      "Tidak ada biaya awal sama sekali",
+      "Cukup jualan langsung",
     ],
     cons: [
-      "Tanggung jawab melekat pada pemilik usaha",
-      "Kredibilitas di bawah PT untuk proyek besar",
+      "Tidak bisa pakai nama “PT” — kredibilitas rendah",
+      "Tidak bisa ikut tender & pengadaan pemerintah",
+      "Ditolak bank saat mengajukan modal usaha",
+      "Aset pribadi menyatu dengan risiko usaha",
+      "Banyak marketplace & mitra besar menolak legalitas kosong",
     ],
     waMsg:
-      "Halo Gunara Consultant! Setelah membandingkan, saya memilih *PO/UPTA (Rp750.000)*. Mohon dibantu prosesnya. Terima kasih!",
+      "Halo Gunara Consultant! Saya selama ini usaha tanpa badan hukum dan ketinggalan banyak peluang. Saya mau segera punya *PT Perseorangan (mulai Rp750rb, 1 hari jadi)*. Mohon diproses hari ini!",
   },
   "pt-perseorangan": {
     name: "PT Perseorangan",
-    tagline: "Perseroan Terbatas — 1 Pemegang Saham",
-    price: "Rp2.500.000",
-    time: "5–10 hari kerja",
-    bestFor: "Pemilik usaha yang sudah tumbuh, butuh perlindungan aset pribadi & kredibilitas tinggi",
+    tagline: "Badan hukum PT penuh — 1 pemilik",
+    cost: "Mulai Rp750rb",
+    time: "1 hari kerja",
+    verdict: "Pilihan paling cerdas: semua keuntungan PT, tanpa biaya notaris.",
     pros: [
-      "Tanggung jawab terbatas — aset pribadi terlindungi hukum",
-      "Badan hukum penuh dengan 1 pemegang saham",
-      "Kredibilitas tertinggi untuk bank & investor",
-      "Bisa rekrut karyawan & ekspansi multi-cabang",
-      "Fondasi kuat untuk M&A dan pendanaan",
+      "Badan hukum resmi — aset pribadi terlindungi hukum",
+      "Tanpa akta notaris — hemat jutaan rupiah",
+      "Terbit 1×24 jam sejak dokumen lengkap",
+      "Bisa pakai nama PT, ikut tender, rekening korporat",
+      "Cukup KTP + NPWP + alamat — diurus penuh oleh kami",
+      "Harga khusus hari ini: Rp750rb dari normal Rp2jt",
     ],
     cons: [
-      "Biaya & proses lebih lama dari PO",
-      "Ada kewajiban pelaporan badan hukum",
+      "Satu NIK hanya boleh satu PT Perseorangan (slot eksklusif)",
+      "Untuk usaha mikro-kecil-menengah (modal maks Rp5 miliar)",
     ],
     waMsg:
-      "Halo Gunara Consultant! Setelah membandingkan, saya memilih *Pendirian PT Perseorangan (Rp2.500.000)*. Mohon dibantu prosesnya. Terima kasih!",
+      "Halo Gunara Consultant! Saya PILIH *PT PERSEORANGAN (mulai Rp750rb, 1 hari jadi)*. Saya siap transfer ke BCA dan kirim KTP + NPWP + Alamat sekarang. Mohon diproses hari ini juga!",
+    recommended: true,
   },
-  pt: {
-    name: "PT / CV",
-    tagline: "Dengan Mitra / Kolega",
-    price: "Rp1.500.000",
-    time: "3–10 hari kerja",
-    bestFor: "Bisnis keluarga atau kongsi dengan 2 orang atau lebih yang berbagi kepemilikan",
+  "pt-notaris": {
+    name: "PT Biasa (Lewat Notaris)",
+    tagline: "Jalur klasik dengan akta notaris",
+    cost: "Rp2.500.000+",
+    time: "5–10 hari kerja",
+    verdict: "Cocok untuk perusahaan besar — boros untuk usaha satu pemilik.",
     pros: [
-      "Struktur ideal untuk bisnis bersama",
-      "CV: modal fleksibel, biaya lebih ringan",
-      "PT: paling kredibel untuk investor & proyek besar",
-      "Pembagian keuntungan jelas di akta",
+      "Tanpa batas modal usaha",
+      "Bisa banyak pemegang saham / investor",
+      "Struktur dewan lengkap (dirkom)",
     ],
     cons: [
-      "Perlu akta notaris (tambahan biaya)",
-      "Butuh kesepakatan antar pemegang bagian/saham",
+      "Wajib akta notaris — biaya jutaan rupiah",
+      "Proses 5–10 hari kerja atau lebih",
+      "Perundang-undangan lebih berat untuk usaha kecil",
+      "Bayar mahal untuk proteksi yang sama",
     ],
     waMsg:
-      "Halo Gunara Consultant! Saya tertarik mendirikan *PT/CV bersama mitra*. Mohon konsultasi untuk pilihan terbaik. Terima kasih!",
+      "Halo Gunara Consultant! Saya tertarik mendirikan *PT biasa lewat notaris*. Mohon konsultasi dulu apakah lebih cocok PT Perseorangan atau PT biasa. Terima kasih!",
   },
 };
 
-const KEYS: EntityKey[] = ["po", "pt-perseorangan", "pt"];
+const KEYS: ChoiceKey[] = ["tanpa-badan-hukum", "pt-perseorangan", "pt-notaris"];
 
 export function Comparison() {
-  const [active, setActive] = useState<EntityKey>("po");
-  const data = ENTITIES[active];
+  const [active, setActive] = useState<ChoiceKey>("pt-perseorangan");
+  const data = CHOICES[active];
 
   return (
     <section className="relative overflow-hidden py-24 md:py-32">
@@ -94,15 +98,15 @@ export function Comparison() {
       <div className="relative z-10 mx-auto max-w-6xl px-4 md:px-8">
         <Reveal className="mx-auto max-w-3xl text-center">
           <p className="text-[11px] font-bold tracking-[0.34em] text-[#d4af37]">
-            PILIH YANG TEPAT
+            HITUNG CERDAS SEBELUM MEMILIH
           </p>
           <h2 className="font-serif-lux mt-4 text-3xl font-bold leading-tight text-[#EDE6D6] md:text-5xl">
-            Bentuk Badan Usaha Mana yang{" "}
-            <span className="text-gold-grad italic">Paling Menguntungkan</span> Anda?
+            Kenapa <span className="text-gold-grad italic">PT Perseorangan</span> adalah
+            Keputusan Paling Cerdas?
           </h2>
           <p className="mt-5 text-[15px] leading-relaxed text-[#EDE6D6]/60">
-            Salah pilih bentuk badan usaha bisa merugikan waktu dan biaya jauh lebih besar.
-            Klik kartu di bawah — atau konsultasikan gratis dengan pakar kami.
+            Klik dan bandingkan sendiri ketiga jalurnya — lihat mengapa pemilik usaha
+            cerdas berbondong-bondong pindah ke PT Perseorangan.
           </p>
         </Reveal>
 
@@ -110,7 +114,7 @@ export function Comparison() {
         <Reveal delay={120} className="mt-10">
           <div
             role="tablist"
-            aria-label="Pilihan bentuk badan usaha"
+            aria-label="Perbandingan jalur pendirian usaha"
             className="glass mx-auto grid max-w-2xl grid-cols-3 gap-1.5 rounded-2xl p-1.5"
           >
             {KEYS.map((key) => (
@@ -119,13 +123,13 @@ export function Comparison() {
                 role="tab"
                 aria-selected={active === key}
                 onClick={() => setActive(key)}
-                className={`rounded-xl px-2 py-3 text-center text-xs font-bold transition-all duration-400 sm:text-sm ${
+                className={`rounded-xl px-2 py-3 text-center text-[11px] font-bold transition-all duration-400 sm:text-sm ${
                   active === key
                     ? "bg-gradient-to-br from-[#d4af37] to-[#a37e1e] text-[#171203] shadow-[0_8px_24px_-8px_rgba(212,175,55,0.6)]"
                     : "text-[#EDE6D6]/55 hover:text-[#f1de9b]"
                 }`}
               >
-                {ENTITIES[key].name}
+                {CHOICES[key].name.replace(" (Lewat Notaris)", "")}
               </button>
             ))}
           </div>
@@ -135,46 +139,55 @@ export function Comparison() {
         <Reveal delay={200} variant="scale" className="mt-8">
           <div
             key={active}
-            className="testi-enter glass-strong gold-hairline grid gap-10 rounded-3xl p-7 md:grid-cols-[1fr_1.1fr] md:p-10"
+            className={`testi-enter grid gap-10 rounded-3xl p-7 md:grid-cols-[1fr_1.1fr] md:p-10 ${
+              data.recommended
+                ? "glass-strong gold-hairline glow-gold"
+                : "glass gold-hairline"
+            }`}
           >
             <div>
               <p className="text-[11px] font-bold tracking-[0.26em] text-[#d4af37]">
                 {data.tagline.toUpperCase()}
               </p>
-              <h3 className="font-serif-lux mt-3 text-3xl font-bold text-[#EDE6D6] md:text-4xl">
+              <h3 className="font-serif-lux mt-3 flex flex-wrap items-center gap-3 text-3xl font-bold text-[#EDE6D6] md:text-4xl">
                 {data.name}
+                {data.recommended && (
+                  <span className="btn-gold inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[10px] font-black tracking-[0.12em]">
+                    <Crown className="h-3.5 w-3.5" />
+                    PALING CERDAS
+                  </span>
+                )}
               </h3>
-              <div className="mt-6 flex items-end gap-2">
-                <span className="font-serif-lux text-gold-grad text-4xl font-bold md:text-5xl">
-                  {data.price}
-                </span>
-              </div>
               <div className="mt-6 grid grid-cols-2 gap-3">
                 <div className="count-box rounded-xl px-4 py-3">
                   <p className="text-[10px] uppercase tracking-[0.18em] text-[#EDE6D6]/45">
-                    Estimasi
+                    Biaya
                   </p>
-                  <p className="mt-1 text-sm font-bold text-[#EDE6D6]">{data.time}</p>
+                  <p className="font-serif-lux mt-1 text-xl font-bold text-[#f1de9b]">
+                    {data.cost}
+                  </p>
                 </div>
                 <div className="count-box rounded-xl px-4 py-3">
                   <p className="text-[10px] uppercase tracking-[0.18em] text-[#EDE6D6]/45">
-                    Cocok untuk
+                    Waktu
                   </p>
-                  <p className="mt-1 text-sm font-bold leading-snug text-[#EDE6D6]">
-                    {active === "po" ? "UMKM & Solo" : active === "pt-perseorangan" ? "Solo Skala Besar" : "Bisnis Bersama"}
+                  <p className="font-serif-lux mt-1 text-xl font-bold text-[#f1de9b]">
+                    {data.time}
                   </p>
                 </div>
               </div>
-              <p className="mt-6 text-sm leading-relaxed text-[#EDE6D6]/65">
-                {data.bestFor}
+              <p className="mt-6 rounded-xl border-l-2 border-[#d4af37]/60 bg-white/[0.03] px-4 py-3 text-sm italic leading-relaxed text-[#EDE6D6]/75">
+                {data.verdict}
               </p>
               <a
                 href={waLink(data.waMsg)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-gold mt-8 inline-flex items-center gap-2.5 rounded-full px-7 py-3.5 text-sm font-bold"
+                className={`mt-8 inline-flex items-center gap-2.5 rounded-full px-7 py-3.5 text-sm font-bold ${
+                  data.recommended ? "btn-gold" : "glass gold-hairline text-[#f1de9b] hover:bg-[#d4af37]/10"
+                }`}
               >
-                Pilih {data.name}
+                {data.recommended ? "Saya Pilih yang Cerdas" : `Pilih ${data.name}`}
                 <ArrowRight className="h-4 w-4" />
               </a>
             </div>

@@ -2,7 +2,6 @@
 
 import { PROCESS_STEPS } from "@/lib/landing-constants";
 import { Reveal } from "./reveal";
-import { BadgeCheck } from "lucide-react";
 
 export function Process() {
   return (
@@ -13,15 +12,15 @@ export function Process() {
       <div className="relative z-10 mx-auto max-w-5xl px-4 md:px-8">
         <Reveal className="mx-auto max-w-3xl text-center">
           <p className="text-[11px] font-bold tracking-[0.34em] text-[#d4af37]">
-            ALUR KERJA BAKU TERSERTIFIKASI
+            ALUR CEPAT TERSERTIFIKASI ISO 9001:2015
           </p>
           <h2 className="font-serif-lux mt-4 text-3xl font-bold leading-tight text-[#EDE6D6] md:text-5xl">
-            5 Langkah Menuju{" "}
-            <span className="text-gold-grad italic">Legalitas Resmi</span>
+            Transfer Hari Ini,{" "}
+            <span className="text-gold-grad italic">PT Sah Besok</span>
           </h2>
           <p className="mt-5 text-[15px] leading-relaxed text-[#EDE6D6]/60">
-            Proses baku tersertifikasi ISO 9001:2015 — Anda selalu tahu posisi berkas Anda
-            di setiap langkah.
+            Lima langkah — Anda hanya menyentuh langkah pertama. Selebihnya kami yang
+            berjuang untuk Anda.
           </p>
         </Reveal>
 
@@ -65,18 +64,19 @@ export function Process() {
                         left ? "md:text-right" : ""
                       }`}
                     >
-                      <h3 className="font-serif-lux text-lg font-semibold text-[#EDE6D6] md:text-xl">
-                        {step.title}
-                      </h3>
+                      <div className="flex items-center gap-3 md:justify-end">
+                        <span className={`inline-block rounded-full border border-[#d4af37]/30 bg-[#d4af37]/10 px-2.5 py-1 text-[9px] font-black tracking-[0.18em] text-[#f1de9b] ${
+                          step.tag === "1×24 JAM" ? "border-[#25D366]/40 bg-[#25D366]/10 text-[#4ade80]" : ""
+                        }`}>
+                          {step.tag}
+                        </span>
+                        <h3 className="font-serif-lux text-lg font-semibold text-[#EDE6D6] md:text-xl">
+                          {step.title}
+                        </h3>
+                      </div>
                       <p className="mt-2.5 text-sm leading-relaxed text-[#EDE6D6]/60">
                         {step.desc}
                       </p>
-                      {i === 2 && (
-                        <p className="mt-3 inline-flex items-center gap-2 rounded-full border border-[#25D366]/25 bg-[#25D366]/8 px-3 py-1.5 text-[11px] font-semibold text-[#4ade80]">
-                          <BadgeCheck className="h-3.5 w-3.5" />
-                          BCA 0860742187 a.n. Gugun Gunara
-                        </p>
-                      )}
                     </div>
                   </div>
                 </Reveal>
