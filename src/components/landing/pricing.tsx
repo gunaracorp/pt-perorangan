@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Check, Flame, Users, BadgePercent } from "lucide-react";
-import { Reveal, useTilt } from "./reveal";
+import { Reveal, useTilt, useSpotlight } from "./reveal";
 import { PRICING_TIERS, waLink } from "@/lib/landing-constants";
 
 function useMonthCountdown() {
@@ -55,6 +55,7 @@ function Countdown() {
 
 function TierCard({ tier }: { tier: (typeof PRICING_TIERS)[number] }) {
   const ref = useTilt<HTMLDivElement>(tier.featured ? 4 : 6);
+  const spotRef = useSpotlight<HTMLDivElement>();
 
   return (
     <div
@@ -65,7 +66,8 @@ function TierCard({ tier }: { tier: (typeof PRICING_TIERS)[number] }) {
         <div className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-[#d4af37]/25 via-transparent to-[#b8860b]/15 blur-2xl" />
       )}
       <div
-        className={`relative flex h-full flex-col rounded-3xl p-7 md:p-8 ${
+        ref={spotRef}
+        className={`spotlight-card relative flex h-full flex-col rounded-3xl p-7 md:p-8 ${
           tier.featured
             ? "glass-strong gold-hairline glow-gold"
             : "glass gold-hairline"
@@ -160,6 +162,14 @@ export function Pricing() {
             Diskon besar berlaku untuk pendaftar bulan ini. Besok harga bisa kembali
             normal — yang ambil hari ini mengunci harga khusus selamanya.
           </p>
+          <div className="mx-auto mt-6 flex max-w-md items-center justify-center gap-3">
+            <div className="slot-bar h-1.5 flex-1 overflow-hidden rounded-full bg-white/8">
+              <div className="h-full w-[68%] rounded-full bg-gradient-to-r from-[#8a6a1f] via-[#d4af37] to-[#f7ecc9]" />
+            </div>
+            <span className="shrink-0 text-[10px] font-bold tracking-[0.14em] text-[#f1de9b]">
+              17/25 TERISI
+            </span>
+          </div>
         </Reveal>
 
         {/* urgency strip */}

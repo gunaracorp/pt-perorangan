@@ -1,12 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { Send, ShieldCheck, Sparkles, BadgeCheck, FileUp } from "lucide-react";
+import { Send, ShieldCheck, Sparkles, BadgeCheck, FileUp, Crown } from "lucide-react";
 import { Reveal } from "./reveal";
 import { waLink, WA_DISPLAY, PRICING_TIERS } from "@/lib/landing-constants";
 import { toast } from "@/hooks/use-toast";
 
-const PACKAGE_OPTIONS = PRICING_TIERS.map((t) => `${t.name} — Rp${t.price}`);
 const BIZ_OPTIONS = [
   "Kuliner / F&B",
   "Fashion / Konveksi",
@@ -21,10 +20,13 @@ const BIZ_OPTIONS = [
 export function RegistrationForm() {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
-  const [pkg, setPkg] = useState(PACKAGE_OPTIONS[0]);
+  const [pkgId, setPkgId] = useState<string>("legalitas-website");
   const [biz, setBiz] = useState(BIZ_OPTIONS[0]);
   const [note, setNote] = useState("");
   const [error, setError] = useState("");
+
+  const selectedTier =
+    PRICING_TIERS.find((t) => t.id === pkgId) ?? PRICING_TIERS[1];
 
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -43,7 +45,7 @@ export function RegistrationForm() {
       "",
       `• Nama: ${name.trim()}`,
       `• No. WhatsApp: ${phone.trim()}`,
-      `• Paket yang dipilih: ${pkg}`,
+      `• Paket yang dipilih: ${selectedTier.name} — Rp${selectedTier.price}`,
       `• Bidang usaha: ${biz}`,
       note.trim() ? `• Catatan: ${note.trim()}` : "",
       "",
@@ -156,27 +158,51 @@ export function RegistrationForm() {
                   />
                 </div>
 
-                <div className="grid gap-4.5 sm:grid-cols-2">
-                  <div>
-                    <label htmlFor="reg-pkg" className="mb-1.5 block text-xs font-semibold tracking-wide text-[#EDE6D6]/70">
-                      Paket yang Dipilih
-                    </label>
-                    <select
-                      id="reg-pkg"
-                      value={pkg}
-                      onChange={(e) => setPkg(e.target.value)}
-                      className={`${inputCls} appearance-none`}
-                    >
-                      {PACKAGE_OPTIONS.map((o) => (
-                        <option key={o} value={o} className="bg-[#0a0c14]">
-                          {o}
-                        </option>
-                      ))}
-                      <option value="Belum tahu, mohon direkomendasikan" className="bg-[#0a0c14]">
-                        Belum tahu — mohon rekomendasi
-                      </option>
-                    </select>
+                <fieldset>
+                  <legend className="mb-2 block text-xs font-semibold tracking-wide text-[#EDE6D6]/70">
+                    Paket yang Dipilih
+                  </legend>
+                  <div className="grid gap-2.5 sm:grid-cols-3">
+                    {PRICING_TIERS.map((t) => {
+                      const active = pkgId === t.id;
+                      return (
+                        <button
+                          key={t.id}
+                          type="button"
+                          role="radio"
+                          aria-checked={active}
+                          onClick={() => setPkgId(t.id)}
+                          className={`relative rounded-xl border px-3 py-3 text-left transition-all duration-300 ${
+                            active
+                              ? "border-[#d4af37]/70 bg-gradient-to-br from-[#d4af37]/18 to-transparent shadow-[0_10px_30px_-12px_rgba(212,175,55,0.5)]"
+                              : "border-[#d4af37]/15 bg-[#05060A]/50 hover:border-[#d4af37]/40"
+                          }`}
+                        >
+                          {t.badge && (
+                            <span className="absolute -top-2 right-2 rounded-full bg-gradient-to-r from-[#b8342f] to-[#e0483f] px-1.5 py-0.5 text-[8px] font-black tracking-wider text-white">
+                              {t.badge === "PALING LARIS" ? "TERLARIS" : t.badge}
+                            </span>
+                          )}
+                          <span
+                            className={`font-serif-lux block text-[13px] font-bold leading-tight ${
+                              active ? "text-[#f1de9b]" : "text-[#EDE6D6]/80"
+                            }`}
+                          >
+                            {t.id === "sultan-20x" ? "Sultan 20X" : t.id === "legalitas-website" ? "Legalitas + Web" : "Legalitas"}
+                          </span>
+                          <span className="mt-1 flex items-center gap-1">
+                            <span className={`text-sm font-bold ${active ? "text-gold-grad" : "text-[#EDE6D6]/70"}`}>
+                              Rp{t.price}
+                            </span>
+                            {active && <Crown className="h-3 w-3 text-[#d4af37]" />}
+                          </span>
+                        </button>
+                      );
+                    })}
                   </div>
+                </fieldset>
+
+                <div className="grid gap-4.5 sm:grid-cols-1">
                   <div>
                     <label htmlFor="reg-biz" className="mb-1.5 block text-xs font-semibold tracking-wide text-[#EDE6D6]/70">
                       Bidang Usaha

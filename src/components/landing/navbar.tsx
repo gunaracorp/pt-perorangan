@@ -16,6 +16,7 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [progress, setProgress] = useState(0);
   const [open, setOpen] = useState(false);
+  const [active, setActive] = useState("");
 
   useEffect(() => {
     const onScroll = () => {
@@ -27,6 +28,26 @@ export function Navbar() {
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  /* V10 — scroll-spy: highlight the section currently in view */
+  useEffect(() => {
+    const ids = NAV_LINKS.map((l) => l.href.slice(1));
+    const sections = ids
+      .map((id) => document.getElementById(id))
+      .filter((el): el is HTMLElement => !!el);
+    if (!sections.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActive(`#${entry.target.id}`);
+        });
+      },
+      { rootMargin: "-35% 0px -55% 0px", threshold: 0 }
+    );
+    sections.forEach((s) => observer.observe(s));
+    return () => observer.disconnect();
   }, []);
 
   return (
@@ -64,10 +85,17 @@ export function Navbar() {
             <a
               key={l.href}
               href={l.href}
-              className="group relative text-[13px] font-medium tracking-wide text-[#EDE6D6]/70 transition-colors hover:text-[#f1de9b]"
+              aria-current={active === l.href ? "true" : undefined}
+              className={`group relative text-[13px] font-medium tracking-wide transition-colors hover:text-[#f1de9b] ${
+                active === l.href ? "nav-active" : "text-[#EDE6D6]/70"
+              }`}
             >
               {l.label}
-              <span className="absolute -bottom-1.5 left-0 h-px w-0 bg-gradient-to-r from-[#d4af37] to-transparent transition-all duration-300 group-hover:w-full" />
+              <span
+                className={`absolute -bottom-1.5 left-0 h-px bg-gradient-to-r from-[#d4af37] to-transparent transition-all duration-300 ${
+                  active === l.href ? "w-full" : "w-0 group-hover:w-full"
+                }`}
+              />
             </a>
           ))}
         </div>
@@ -86,7 +114,7 @@ export function Navbar() {
             className="btn-gold hidden items-center gap-2 rounded-full px-5 py-2.5 text-[13px] font-bold tracking-wide sm:flex"
           >
             <Sparkles className="h-4 w-4" />
-            Daftar Sekarang
+            Daftar — Rp750rb
           </a>
           <button
             onClick={() => setOpen(!open)}

@@ -148,6 +148,18 @@ export const PRICING_TIERS = [
   },
 ];
 
+/** Social proof feed — rotasi popup "baru saja mendaftar" */
+export const LIVE_FEED = [
+  { name: "Budi Santoso", city: "Bekasi", pkg: "Paket Legalitas + Website", mins: 2, initials: "BS" },
+  { name: "Siti Rahmawati", city: "Surabaya", pkg: "Paket Legalitas", mins: 6, initials: "SR" },
+  { name: "Andi Wijaya", city: "Makassar", pkg: "Paket Sultan 20X", mins: 11, initials: "AW" },
+  { name: "Dewi Lestari", city: "Denpasar", pkg: "Paket Legalitas + Website", mins: 18, initials: "DL" },
+  { name: "Rizky Pratama", city: "Jakarta Selatan", pkg: "Paket Legalitas", mins: 24, initials: "RP" },
+  { name: "Maya Anggraeni", city: "Bandung", pkg: "Paket Sultan 20X", mins: 31, initials: "MA" },
+  { name: "Hoji Nasution", city: "Medan", pkg: "Paket Legalitas + Website", mins: 39, initials: "HN" },
+  { name: "Lina Marlina", city: "Tasikmalaya", pkg: "Paket Legalitas", mins: 47, initials: "LM" },
+];
+
 export const TESTIMONIALS = [
   {
     quote:
@@ -155,6 +167,7 @@ export const TESTIMONIALS = [
     name: "Dedi Kurniawan",
     role: "Owner PT Katering Nusantara — Tasikmalaya",
     initials: "DK",
+    pkg: "Paket Legalitas",
   },
   {
     quote:
@@ -162,6 +175,7 @@ export const TESTIMONIALS = [
     name: "Ratna Sari",
     role: "Founder PT Fashion Brand — Bandung",
     initials: "RS",
+    pkg: "Paket Legalitas + Website",
   },
   {
     quote:
@@ -169,6 +183,7 @@ export const TESTIMONIALS = [
     name: "Hendra Gunawan",
     role: "Direktur PT Konstruksi — Semarang",
     initials: "HG",
+    pkg: "Paket Legalitas",
   },
   {
     quote:
@@ -176,6 +191,7 @@ export const TESTIMONIALS = [
     name: "Melinda Oktaviani",
     role: "Owner PT Beauty Indonesia — Jakarta",
     initials: "MO",
+    pkg: "Paket Sultan 20X",
   },
   {
     quote:
@@ -183,6 +199,7 @@ export const TESTIMONIALS = [
     name: "Yusuf Maulana",
     role: "Founder PT Digital Pekanbaru",
     initials: "YM",
+    pkg: "Paket Legalitas",
   },
   {
     quote:
@@ -190,6 +207,7 @@ export const TESTIMONIALS = [
     name: "Fitri Handayani",
     role: "Owner PT Salon & Spa — Yogyakarta",
     initials: "FH",
+    pkg: "Paket Legalitas + Website",
   },
 ];
 

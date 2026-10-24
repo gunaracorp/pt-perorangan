@@ -442,6 +442,271 @@ body {
   animation: copyFlash 0.7s ease-out;
 }
 
+/* ============================================================
+   V10 — SULTAN EDITION
+   ============================================================ */
+
+/* ---------- SplitWords reveal ---------- */
+.split-words .word-clip {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
+}
+
+.split-words .word-rise {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(105%) rotate(3deg);
+  filter: blur(6px);
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform, opacity;
+}
+
+.split-words.words-in .word-rise {
+  opacity: 1;
+  transform: translateY(0) rotate(0);
+  filter: blur(0);
+}
+
+/* ---------- Spotlight card (mouse-follow highlight) ---------- */
+.spotlight-card {
+  position: relative;
+}
+
+.spotlight-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    340px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(212, 175, 55, 0.12),
+    transparent 65%
+  );
+  opacity: 0;
+  transition: opacity 0.45s ease;
+  pointer-events: none;
+}
+
+.spotlight-card:hover::after {
+  opacity: 1;
+}
+
+/* ---------- Gold range slider (ROI calculator) ---------- */
+.range-gold {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 9999px;
+  background: linear-gradient(
+    90deg,
+    #d4af37 0%,
+    #f1de9b var(--range-progress, 50%),
+    rgba(255, 255, 255, 0.08) var(--range-progress, 50%)
+  );
+  outline: none;
+  cursor: pointer;
+}
+
+.range-gold::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 26px;
+  height: 26px;
+  border-radius: 9999px;
+  background: radial-gradient(circle at 35% 30%, #fdf3d0, #d4af37 55%, #8a6a1f);
+  border: 2px solid rgba(255, 244, 214, 0.9);
+  box-shadow:
+    0 0 0 6px rgba(212, 175, 55, 0.18),
+    0 6px 18px -4px rgba(212, 175, 55, 0.8);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.range-gold::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+  box-shadow:
+    0 0 0 10px rgba(212, 175, 55, 0.22),
+    0 8px 24px -4px rgba(212, 175, 55, 0.9);
+}
+
+.range-gold::-moz-range-thumb {
+  width: 26px;
+  height: 26px;
+  border-radius: 9999px;
+  background: radial-gradient(circle at 35% 30%, #fdf3d0, #d4af37 55%, #8a6a1f);
+  border: 2px solid rgba(255, 244, 214, 0.9);
+  box-shadow: 0 0 0 6px rgba(212, 175, 55, 0.18);
+}
+
+/* ---------- Live feed popup ---------- */
+@keyframes feedIn {
+  0% { opacity: 0; transform: translateY(26px) scale(0.94); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes feedOut {
+  0% { opacity: 1; transform: translateY(0) scale(1); }
+  100% { opacity: 0; transform: translateY(14px) scale(0.96); }
+}
+
+.feed-pop {
+  animation: feedIn 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.feed-pop.is-leaving {
+  animation: feedOut 0.5s ease forwards;
+}
+
+/* ---------- Sticky mobile CTA ---------- */
+@keyframes stickyUp {
+  from { transform: translateY(110%); }
+  to { transform: translateY(0); }
+}
+
+.sticky-cta-in {
+  animation: stickyUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* ---------- Film grain overlay ---------- */
+.grain-overlay {
+  position: fixed;
+  inset: -50%;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 250 250' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: grainShift 9s steps(6) infinite;
+}
+
+@keyframes grainShift {
+  0%, 100% { transform: translate(0, 0); }
+  20% { transform: translate(-3%, 2%); }
+  40% { transform: translate(2%, -3%); }
+  60% { transform: translate(-2%, -2%); }
+  80% { transform: translate(3%, 3%); }
+}
+
+/* ---------- Shimmer divider ---------- */
+.shimmer-line {
+  position: relative;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.4), transparent);
+  overflow: hidden;
+}
+
+.shimmer-line::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 40%;
+  background: linear-gradient(90deg, transparent, rgba(247, 236, 201, 0.9), transparent);
+  animation: shimmerRun 3.2s ease-in-out infinite;
+}
+
+@keyframes shimmerRun {
+  0% { transform: translateX(-120%); }
+  60%, 100% { transform: translateX(320%); }
+}
+
+/* ---------- Gold progress bar (slot kuota) ---------- */
+@keyframes slotShine {
+  0% { transform: translateX(-100%); }
+  55%, 100% { transform: translateX(240%); }
+}
+
+.slot-bar {
+  position: relative;
+  overflow: hidden;
+}
+
+.slot-bar::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 36%;
+  background: linear-gradient(90deg, transparent, rgba(255, 248, 224, 0.85), transparent);
+  animation: slotShine 2.6s ease-in-out infinite;
+}
+
+/* ---------- Giant outline watermark text ---------- */
+.text-outline {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(212, 175, 55, 0.14);
+}
+
+/* ---------- Live dot ---------- */
+@keyframes livePulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.55); }
+  50% { box-shadow: 0 0 0 6px rgba(74, 222, 128, 0); }
+}
+
+.live-dot {
+  animation: livePulse 1.6s ease-in-out infinite;
+}
+
+/* ---------- Certificate seal ---------- */
+@keyframes sealGlow {
+  0%, 100% { filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.4)); transform: rotate(0deg); }
+  50% { filter: drop-shadow(0 0 18px rgba(241, 222, 155, 0.75)); transform: rotate(4deg); }
+}
+
+.cert-seal {
+  animation: sealGlow 4.5s ease-in-out infinite;
+}
+
+/* ---------- Avatar stack ring ---------- */
+.avatar-ring {
+  border: 2px solid rgba(212, 175, 55, 0.55);
+  box-shadow: 0 4px 14px -4px rgba(0, 0, 0, 0.7);
+}
+
+/* ---------- ROI bar grow ---------- */
+.roi-bar-grow {
+  animation: roiGrow 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+  transform-origin: bottom;
+}
+
+@keyframes roiGrow {
+  from { transform: scaleY(0.02); }
+  to { transform: scaleY(1); }
+}
+
+/* ---------- Navbar active link ---------- */
+.nav-active {
+  color: #f1de9b;
+}
+
+.nav-active::after {
+  width: 100%;
+}
+
+/* ---------- Comp check flash ---------- */
+@keyframes compPop {
+  0% { transform: scale(0.92); opacity: 0; }
+  60% { transform: scale(1.04); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.comp-pop {
+  animation: compPop 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ---------- Autoplay progress bar ---------- */
+@keyframes progressRun {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+
+.progress-run {
+  animation: progressRun 5.2s linear forwards;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
@@ -449,4 +714,5 @@ body {
     transition-duration: 0.01ms !important;
   }
   .reveal { opacity: 1; transform: none; }
+  .split-words .word-rise { opacity: 1; transform: none; filter: none; }
 }

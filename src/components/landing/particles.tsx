@@ -13,9 +13,20 @@ type Particle = {
   twinkleSpeed: number;
 };
 
+type Star = {
+  x: number;
+  y: number;
+  vx: number;
+  vy: number;
+  life: number;
+  maxLife: number;
+};
+
 /**
- * Luxury gold dust canvas — particles float upward, twinkle,
- * and gently react to the mouse position.
+ * V10 — Luxury gold dust canvas:
+ * floating particles + constellation lines between neighbours
+ * + occasional shooting star. Mouse-reactive, DPR-aware,
+ * reduced-motion aware.
  */
 export function GoldParticles({ density = 90 }: { density?: number }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -28,6 +39,9 @@ export function GoldParticles({ density = 90 }: { density?: number }) {
 
     let raf = 0;
     let particles: Particle[] = [];
+    let stars: Star[] = [];
+    let frame = 0;
+    let nextStar = 260;
     const mouse = { x: -9999, y: -9999 };
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
 
@@ -46,10 +60,7 @@ export function GoldParticles({ density = 90 }: { density?: number }) {
     const seed = () => {
       const w = canvas.width / dpr;
       const h = canvas.height / dpr;
-      const count = Math.min(
-        density,
-        Math.floor((w * h) / 16000)
-      );
+      const count = Math.min(density, Math.floor((w * h) / 16000));
       particles = Array.from({ length: Math.max(30, count) }, () => ({
         x: Math.random() * w,
         y: Math.random() * h,
@@ -62,17 +73,82 @@ export function GoldParticles({ density = 90 }: { density?: number }) {
       }));
     };
 
+    const spawnStar = (w: number, h: number) => {
+      const ang = Math.PI * (0.08 + Math.random() * 0.22);
+      const speed = 7 + Math.random() * 5;
+      stars.push({
+        x: Math.random() * w * 0.7,
+        y: -20,
+        vx: Math.cos(ang) * speed,
+        vy: Math.sin(ang) * speed,
+        life: 0,
+        maxLife: 46 + Math.random() * 22,
+      });
+    };
+
+    const drawConstellations = (w: number, h: number) => {
+      ctx.lineWidth = 0.6;
+      for (let i = 0; i < particles.length; i++) {
+        const a = particles[i];
+        for (let j = i + 1; j < particles.length; j++) {
+          const b = particles[j];
+          const dx = a.x - b.x;
+          const dy = a.y - b.y;
+          const d2 = dx * dx + dy * dy;
+          if (d2 < 120 * 120 && d2 > 1) {
+            const t = 1 - Math.sqrt(d2) / 120;
+            ctx.strokeStyle = `rgba(212, 175, 55, ${t * 0.14})`;
+            ctx.beginPath();
+            ctx.moveTo(a.x, a.y);
+            ctx.lineTo(b.x, b.y);
+            ctx.stroke();
+          }
+        }
+      }
+    };
+
     const draw = () => {
       const w = canvas.width / dpr;
       const h = canvas.height / dpr;
       ctx.clearRect(0, 0, w, h);
+      frame++;
 
+      // constellation web
+      drawConstellations(w, h);
+
+      // shooting star
+      if (frame >= nextStar) {
+        spawnStar(w, h);
+        nextStar = frame + 320 + Math.random() * 340;
+      }
+      stars = stars.filter((s) => s.life < s.maxLife);
+      for (const s of stars) {
+        s.life++;
+        s.x += s.vx;
+        s.y += s.vy;
+        const fade = 1 - s.life / s.maxLife;
+        const grad = ctx.createLinearGradient(
+          s.x - s.vx * 8,
+          s.y - s.vy * 8,
+          s.x,
+          s.y
+        );
+        grad.addColorStop(0, "rgba(247, 236, 201, 0)");
+        grad.addColorStop(1, `rgba(247, 236, 201, ${0.8 * fade})`);
+        ctx.strokeStyle = grad;
+        ctx.lineWidth = 1.6;
+        ctx.beginPath();
+        ctx.moveTo(s.x - s.vx * 8, s.y - s.vy * 8);
+        ctx.lineTo(s.x, s.y);
+        ctx.stroke();
+      }
+
+      // gold dust
       for (const p of particles) {
         p.phase += p.twinkleSpeed;
         p.x += p.speedX;
         p.y += p.speedY;
 
-        // gentle mouse repulsion
         const dx = p.x - mouse.x;
         const dy = p.y - mouse.y;
         const dist = Math.hypot(dx, dy);
@@ -122,7 +198,6 @@ export function GoldParticles({ density = 90 }: { density?: number }) {
       canvas.addEventListener("mouseleave", onLeave);
       raf = requestAnimationFrame(draw);
     } else {
-      // single static frame
       draw();
       cancelAnimationFrame(raf);
     }

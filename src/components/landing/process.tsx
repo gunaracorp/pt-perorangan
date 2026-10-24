@@ -1,7 +1,56 @@
 "use client";
 
+import { FileBadge2, Award, ScrollText, ShieldCheck } from "lucide-react";
 import { PROCESS_STEPS } from "@/lib/landing-constants";
-import { Reveal } from "./reveal";
+import { Reveal, useTilt } from "./reveal";
+
+const RESULTS = [
+  {
+    icon: FileBadge2,
+    code: "NIB",
+    title: "Nomor Induk Berusaha",
+    note: "Berfungsi sebagai akta pendirian + SK pengesahan badan hukum",
+  },
+  {
+    icon: Award,
+    code: "SERTIFIKAT",
+    title: "Sertifikat Pendaftaran",
+    note: "Bukti resmi terdaftarnya PT Perseorangan Anda",
+  },
+  {
+    icon: ScrollText,
+    code: "AKTA",
+    title: "Akta Perseorangan",
+    note: "Disusun langsung oleh tim Gunara Consultant",
+  },
+];
+
+function ResultCard({
+  item,
+}: {
+  item: (typeof RESULTS)[number];
+}) {
+  const ref = useTilt<HTMLDivElement>(6);
+
+  return (
+    <div ref={ref} className="tilt-card">
+      <div className="glass-strong gold-hairline shine-wrap relative overflow-hidden rounded-2xl p-6 text-center">
+        <div className="shine-sweep pointer-events-none absolute inset-0" />
+        {/* gold seal */}
+        <div className="cert-seal mx-auto flex h-12 w-12 items-center justify-center rounded-full border-2 border-[#d4af37]/70 bg-gradient-to-br from-[#2a2310] to-[#0a0c14]">
+          <ShieldCheck className="h-5.5 w-5.5 text-[#f1de9b]" />
+        </div>
+        <p className="mt-4 text-[10px] font-black tracking-[0.3em] text-[#d4af37]">
+          {item.code}
+        </p>
+        <h4 className="font-serif-lux mt-1.5 text-lg font-semibold text-[#EDE6D6]">
+          {item.title}
+        </h4>
+        <p className="mt-2 text-xs leading-relaxed text-[#EDE6D6]/55">{item.note}</p>
+      </div>
+    </div>
+  );
+}
 
 export function Process() {
   return (
@@ -84,6 +133,27 @@ export function Process() {
             })}
           </div>
         </div>
+
+        {/* final deliverables showcase */}
+        <Reveal delay={120} className="mt-20">
+          <div className="mx-auto max-w-3xl text-center">
+            <div className="shimmer-line mx-auto w-40" />
+            <p className="mt-8 text-[11px] font-bold tracking-[0.34em] text-[#d4af37]">
+              YANG ANDA TERIMA DI TANGAN
+            </p>
+            <h3 className="font-serif-lux mt-3 text-2xl font-bold text-[#EDE6D6] md:text-3xl">
+              3 Dokumen Emas{" "}
+              <span className="text-gold-grad italic">Pembuktian Keberadaan PT Anda</span>
+            </h3>
+          </div>
+          <div className="mt-10 grid gap-4 md:grid-cols-3 md:gap-6">
+            {RESULTS.map((r, i) => (
+              <Reveal key={r.code} delay={i * 140} variant="scale">
+                <ResultCard item={r} />
+              </Reveal>
+            ))}
+          </div>
+        </Reveal>
       </div>
     </section>
   );

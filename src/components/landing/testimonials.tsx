@@ -61,6 +61,9 @@ export function Testimonials() {
             <Quote className="absolute -top-5 left-8 h-11 w-11 rounded-full border border-[#d4af37]/30 bg-[#0a0c14] p-2.5 text-[#d4af37]" />
 
             <div key={index} className="testi-enter min-h-[190px] md:min-h-[160px]">
+              <span className="mb-4 inline-block rounded-full border border-[#d4af37]/30 bg-[#d4af37]/10 px-3 py-1 text-[10px] font-bold tracking-[0.16em] text-[#f1de9b]">
+                {t.pkg}
+              </span>
               <p className="font-serif-lux text-lg font-medium leading-relaxed text-[#EDE6D6]/90 md:text-[1.4rem] md:leading-relaxed">
                 “{t.quote}”
               </p>
@@ -79,19 +82,30 @@ export function Testimonials() {
 
             {/* controls */}
             <div className="mt-9 flex items-center justify-between">
-              <div className="flex gap-2">
-                {TESTIMONIALS.map((_, i) => (
-                  <button
-                    key={i}
-                    onClick={() => setIndex(i)}
-                    aria-label={`Testimoni ${i + 1}`}
-                    className={`h-1.5 rounded-full transition-all duration-400 ${
-                      i === index
-                        ? "w-8 bg-gradient-to-r from-[#d4af37] to-[#f1de9b]"
-                        : "w-3 bg-white/15 hover:bg-white/30"
-                    }`}
+              <div className="flex items-center gap-3">
+                <div className="flex gap-2">
+                  {TESTIMONIALS.map((_, i) => (
+                    <button
+                      key={i}
+                      onClick={() => setIndex(i)}
+                      aria-label={`Testimoni ${i + 1}`}
+                      className={`h-1.5 rounded-full transition-all duration-400 ${
+                        i === index
+                          ? "w-8 bg-gradient-to-r from-[#d4af37] to-[#f1de9b]"
+                          : "w-3 bg-white/15 hover:bg-white/30"
+                      }`}
+                    />
+                  ))}
+                </div>
+                {/* autoplay progress */}
+                <span
+                  key={`progress-${index}-${paused}`}
+                  className="hidden h-1 w-14 overflow-hidden rounded-full bg-white/10 sm:block"
+                >
+                  <span
+                    className={`block h-full rounded-full bg-[#d4af37]/70 ${paused ? "w-full opacity-40" : "progress-run"}`}
                   />
-                ))}
+                </span>
               </div>
               <div className="flex gap-2.5">
                 <button

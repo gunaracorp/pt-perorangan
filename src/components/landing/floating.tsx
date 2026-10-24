@@ -31,7 +31,7 @@ export function FloatingWhatsApp() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat WhatsApp dengan Gunara Consultant"
-      className="group fixed bottom-5 right-5 z-40 flex items-center gap-3 opacity-0 transition-transform duration-700 md:bottom-7 md:right-7"
+      className="group fixed bottom-24 right-5 z-40 flex items-center gap-3 opacity-0 transition-transform duration-700 md:bottom-7 md:right-7"
       style={{ transform: "translateY(24px)" }}
     >
       <span className="glass-strong gold-hairline pointer-events-none hidden rounded-full px-4 py-2.5 text-xs font-semibold text-[#EDE6D6] opacity-0 transition-all duration-300 group-hover:opacity-100 md:block">
